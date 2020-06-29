@@ -1,0 +1,1554 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Sun May 10 22:43:37 2020
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	16F685
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	idataBANK0,global,class=CODE,delta=2
+     5                           	psect	nvBANK0,global,class=BANK0,space=1,delta=1
+     6                           	psect	nvCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	cinit,global,class=CODE,delta=2
+     8                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     9                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+    10                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+    11                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    12                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    13                           	psect	maintext,global,class=CODE,delta=2
+    14                           	psect	text349,local,class=CODE,delta=2
+    15                           	psect	text350,local,class=CODE,delta=2
+    16                           	psect	text351,local,class=CODE,delta=2
+    17                           	psect	text352,local,class=CODE,delta=2
+    18                           	psect	text353,local,class=CODE,delta=2
+    19                           	psect	text354,local,class=CODE,delta=2
+    20                           	psect	text355,local,class=CODE,delta=2
+    21                           	psect	text356,local,class=CODE,delta=2
+    22                           	psect	text357,local,class=CODE,delta=2
+    23                           	psect	text358,local,class=CODE,delta=2
+    24                           	psect	intentry,global,class=CODE,delta=2
+    25                           	psect	text359,local,class=CODE,delta=2
+    26                           	psect	pa_nodes,global,class=CODE,delta=2
+    27                           	dabs	1,0x11E,1
+    28                           	dabs	1,0x11F,1
+    29                           	dabs	1,0x119,1
+    30                           	dabs	1,0x11A,1
+    31                           	dabs	1,0x11B,1
+    32                           	dabs	1,0x10F,1
+    33                           	dabs	1,0x10E,1
+    34                           	dabs	1,0x116,1
+    35                           	dabs	1,0x19D,1
+    36                           	dabs	1,0x19E,1
+    37                           	dabs	1,0x118,1
+    38                           	dabs	1,0x115,1
+    39                           	dabs	1,0x11E,1
+    40                           	dabs	1,0x11E,1
+    41                           	dabs	1,0x11F,1
+    42                           	dabs	1,0x11F,1
+    43                           	dabs	1,0x11E,1
+    44                           	dabs	1,0x11E,1
+    45                           	dabs	1,0x11E,1
+    46                           	dabs	1,0x11E,1
+    47                           	dabs	1,0x11E,1
+    48                           	dabs	1,0x11E,1
+    49                           	dabs	1,0x11F,1
+    50                           	dabs	1,0x11F,1
+    51                           	dabs	1,0x119,1
+    52                           	dabs	1,0x119,1
+    53                           	dabs	1,0x119,1
+    54                           	dabs	1,0x119,1
+    55                           	dabs	1,0x119,1
+    56                           	dabs	1,0x119,1
+    57                           	dabs	1,0x119,1
+    58                           	dabs	1,0x19E,1
+    59                           	dabs	1,0x118,1
+    60                           	dabs	1,0x11A,1
+    61                           	dabs	1,0x11A,1
+    62                           	dabs	1,0x11A,1
+    63                           	dabs	1,0x11A,1
+    64                           	dabs	1,0x11A,1
+    65                           	dabs	1,0x11A,1
+    66                           	dabs	1,0x11A,1
+    67                           	dabs	1,0x19E,1
+    68                           	dabs	1,0x11B,1
+    69                           	dabs	1,0x118,1
+    70                           	dabs	1,0x18C,1
+    71                           	dabs	1,0x116,1
+    72                           	dabs	1,0x116,1
+    73                           	dabs	1,0x116,1
+    74                           	dabs	1,0x116,1
+    75                           	dabs	1,0x11B,1
+    76                           	dabs	1,0x11B,1
+    77                           	dabs	1,0x19E,1
+    78                           	dabs	1,0x19E,1
+    79                           	dabs	1,0x19E,1
+    80                           	dabs	1,0x19E,1
+    81                           	dabs	1,0x19D,1
+    82                           	dabs	1,0x19D,1
+    83                           	dabs	1,0x19D,1
+    84                           	dabs	1,0x19D,1
+    85                           	dabs	1,0x19D,1
+    86                           	dabs	1,0x11B,1
+    87                           	dabs	1,0x118,1
+    88                           	dabs	1,0x118,1
+    89                           	dabs	1,0x118,1
+    90                           	dabs	1,0x118,1
+    91                           	dabs	1,0x118,1
+    92                           	dabs	1,0x118,1
+    93                           	dabs	1,0x115,1
+    94                           	dabs	1,0x115,1
+    95                           	dabs	1,0x115,1
+    96                           	dabs	1,0x115,1
+    97                           	dabs	1,0x18C,1
+    98                           	dabs	1,0x7E,2
+    99  000A                     
+   100                           	psect	idataBANK0
+   101  0000                     __pidataBANK0:	
+   102  011E                     _ANSEL	set	286	;_ANSEL
+   103  011F                     _ANSELH	set	287	;_ANSELH
+   104  0119                     _CM1CON0	set	281	;_CM1CON0
+   105  011A                     _CM2CON0	set	282	;_CM2CON0
+   106  011B                     _CM2CON1	set	283	;_CM2CON1
+   107  010F                     _EEADRH	set	271	;_EEADRH
+   108  010E                     _EEDATH	set	270	;_EEDATH
+   109  0116                     _IOCB	set	278	;_IOCB
+   110  019D                     _PSTRCON	set	413	;_PSTRCON
+   111  019E                     _SRCON	set	414	;_SRCON
+   112  0118                     _VRCON	set	280	;_VRCON
+   113  0115                     _WPUB	set	277	;_WPUB
+   114  08F0                     _ANS0	set	2288	;_ANS0
+   115  08F1                     _ANS1	set	2289	;_ANS1
+   116  08FA                     _ANS10	set	2298	;_ANS10
+   117  08FB                     _ANS11	set	2299	;_ANS11
+   118  08F2                     _ANS2	set	2290	;_ANS2
+   119  08F3                     _ANS3	set	2291	;_ANS3
+   120  08F4                     _ANS4	set	2292	;_ANS4
+   121  08F5                     _ANS5	set	2293	;_ANS5
+   122  08F6                     _ANS6	set	2294	;_ANS6
+   123  08F7                     _ANS7	set	2295	;_ANS7
+   124  08F8                     _ANS8	set	2296	;_ANS8
+   125  08F9                     _ANS9	set	2297	;_ANS9
+   126  08C8                     _C1CH0	set	2248	;_C1CH0
+   127  08C9                     _C1CH1	set	2249	;_C1CH1
+   128  08CD                     _C1OE	set	2253	;_C1OE
+   129  08CF                     _C1ON	set	2255	;_C1ON
+   130  08CE                     _C1OUT	set	2254	;_C1OUT
+   131  08CC                     _C1POL	set	2252	;_C1POL
+   132  08CA                     _C1R	set	2250	;_C1R
+   133  0CF5                     _C1SEN	set	3317	;_C1SEN
+   134  08C7                     _C1VREN	set	2247	;_C1VREN
+   135  08D0                     _C2CH0	set	2256	;_C2CH0
+   136  08D1                     _C2CH1	set	2257	;_C2CH1
+   137  08D5                     _C2OE	set	2261	;_C2OE
+   138  08D7                     _C2ON	set	2263	;_C2ON
+   139  08D6                     _C2OUT	set	2262	;_C2OUT
+   140  08D4                     _C2POL	set	2260	;_C2POL
+   141  08D2                     _C2R	set	2258	;_C2R
+   142  0CF4                     _C2REN	set	3316	;_C2REN
+   143  08D8                     _C2SYNC	set	2264	;_C2SYNC
+   144  08C6                     _C2VREN	set	2246	;_C2VREN
+   145  0C67                     _EEPGD	set	3175	;_EEPGD
+   146  08B4                     _IOCB4	set	2228	;_IOCB4
+   147  08B5                     _IOCB5	set	2229	;_IOCB5
+   148  08B6                     _IOCB6	set	2230	;_IOCB6
+   149  08B7                     _IOCB7	set	2231	;_IOCB7
+   150  08DF                     _MC1OUT	set	2271	;_MC1OUT
+   151  08DE                     _MC2OUT	set	2270	;_MC2OUT
+   152  0CF2                     _PULSR	set	3314	;_PULSR
+   153  0CF3                     _PULSS	set	3315	;_PULSS
+   154  0CF6                     _SR0	set	3318	;_SR0
+   155  0CF7                     _SR1	set	3319	;_SR1
+   156  0CE8                     _STRA	set	3304	;_STRA
+   157  0CE9                     _STRB	set	3305	;_STRB
+   158  0CEA                     _STRC	set	3306	;_STRC
+   159  0CEB                     _STRD	set	3307	;_STRD
+   160  0CEC                     _STRSYNC	set	3308	;_STRSYNC
+   161  08D9                     _T1GSS	set	2265	;_T1GSS
+   162  08C4                     _VP6EN	set	2244	;_VP6EN
+   163  08C0                     _VR0	set	2240	;_VR0
+   164  08C1                     _VR1	set	2241	;_VR1
+   165  08C2                     _VR2	set	2242	;_VR2
+   166  08C3                     _VR3	set	2243	;_VR3
+   167  08C5                     _VRR	set	2245	;_VRR
+   168  08AC                     _WPUB4	set	2220	;_WPUB4
+   169  08AD                     _WPUB5	set	2221	;_WPUB5
+   170  08AE                     _WPUB6	set	2222	;_WPUB6
+   171  08AF                     _WPUB7	set	2223	;_WPUB7
+   172  0C62                     _WREN	set	3170	;_WREN
+   173                           
+   174                           	psect	nvBANK0
+   175  0040                     __pnvBANK0:	
+   176  0040                     _working_timer:	
+   177  0040                     	ds	2
+   178                           
+   179                           	psect	nvCOMMON
+   180  007B                     __pnvCOMMON:	
+   181  007B                     _led_stat:	
+   182  007B                     	ds	1
+   183  000B                     _INTCON	set	11
+   184  001B                     _MSCON	set	27
+   185  0005                     _PORTA	set	5
+   186  0007                     _PORTC	set	7
+   187  001F                     _T0CON0	set	31
+   188  0001                     _TMR0	set	1
+   189  005F                     _GIE	set	95
+   190  005C                     _INTE	set	92
+   191  0059                     _INTF	set	89
+   192  002A                     _PA2	set	42
+   193  002E                     _PA6	set	46
+   194  0039                     _PC1	set	57
+   195  003C                     _PC4	set	60
+   196  003D                     _PC5	set	61
+   197  002C                     _RA4	set	44
+   198  002F                     _RA7	set	47
+   199  005D                     _T0IE	set	93
+   200  005A                     _T0IF	set	90
+   201  00FB                     _T0ON	set	251
+   202  0081                     _OPTION	set	129
+   203  008F                     _OSCCON	set	143
+   204  0097                     _PSINKA	set	151
+   205  009F                     _PSINKC	set	159
+   206  0088                     _PSRCA	set	136
+   207  0094                     _PSRCC	set	148
+   208  0085                     _TRISA	set	133
+   209  0087                     _TRISC	set	135
+   210  0095                     _WPUA	set	149
+   211  0093                     _WPUC	set	147
+   212  040E                     _INTEDG	set	1038
+   213                           
+   214                           	psect	cinit
+   215  00EB                     start_initialization:	
+   216  00EB  3008               	movlw	8
+   217                           
+   218                           ; Clear objects allocated to COMMON
+   219  00EC  01F6               	clrf	__pbssCOMMON& (0+127)
+   220  00ED  01F7               	clrf	(__pbssCOMMON+1)& (0+127)
+   221  00EE  01F8               	clrf	(__pbssCOMMON+2)& (0+127)
+   222  00EF  01F9               	clrf	(__pbssCOMMON+3)& (0+127)
+   223  00F0  01FA               	clrf	(__pbssCOMMON+4)& (0+127)
+   224                           
+   225                           ; Clear objects allocated to BANK0
+   226  00F1  01C2               	clrf	__pbssBANK0& (0+127)
+   227  00F2  01C3               	clrf	(__pbssBANK0+1)& (0+127)
+   228                           
+   229                           ;initializer for _LED_SPEED
+   230  00F3  00C4               	movwf	__pdataBANK0& (0+127)
+   231                           
+   232                           ;initializer for _dir
+   233  00F4  3001               	movlw	1
+   234  00F5  00C5               	movwf	(__pdataBANK0+1)& (0+127)
+   235  00F6                     end_of_initialization:	
+   236                           ;End of C runtime variable initialization code
+   237                           
+   238  00F6  0183               	clrf	3
+   239  00F7  280B               	ljmp	_main	;jump to C main() function
+   240                           
+   241                           	psect	bssCOMMON
+   242  0076                     __pbssCOMMON:	
+   243  0076                     GetKeyEvent@keytime:	
+   244  0076                     	ds	1
+   245  0077                     _T0_cnt:	
+   246  0077                     	ds	1
+   247  0078                     _brightness:	
+   248  0078                     	ds	1
+   249  0079                     _delay:	
+   250  0079                     	ds	1
+   251  007A                     _machine_state:	
+   252  007A                     	ds	1
+   253                           
+   254                           	psect	bssBANK0
+   255  0042                     __pbssBANK0:	
+   256  0042                     _T0_seconds:	
+   257  0042                     	ds	2
+   258                           
+   259                           	psect	dataBANK0
+   260  0044                     __pdataBANK0:	
+   261  0044                     _LED_SPEED:	
+   262  0044                     	ds	1
+   263  0045                     _dir:	
+   264  0045                     	ds	1
+   265                           
+   266                           	psect	cstackCOMMON
+   267  0070                     __pcstackCOMMON:	
+   268  0070                     ?_DEVICE_INIT:	
+   269  0070                     ?_DELAY_125US:	
+   270                           ; 0 bytes @ 0x0
+   271                           
+   272  0070                     ?_ISR:	
+   273                           ; 0 bytes @ 0x0
+   274                           
+   275  0070                     ??_ISR:	
+   276                           ; 0 bytes @ 0x0
+   277                           
+   278  0070                     ?_TIMER0_INIT:	
+   279                           ; 0 bytes @ 0x0
+   280                           
+   281  0070                     ?_ENABLE_INTERRUPT:	
+   282                           ; 0 bytes @ 0x0
+   283                           
+   284  0070                     ?_SetUvWorking:	
+   285                           ; 0 bytes @ 0x0
+   286                           
+   287  0070                     ?_SetUvIdle:	
+   288                           ; 0 bytes @ 0x0
+   289                           
+   290  0070                     ?_SetUvSleep:	
+   291                           ; 0 bytes @ 0x0
+   292                           
+   293  0070                     ?_main:	
+   294                           ; 0 bytes @ 0x0
+   295                           
+   296  0070                     ?_GetKeyEvent:	
+   297                           ; 0 bytes @ 0x0
+   298                           
+   299                           
+   300                           ; 1 bytes @ 0x0
+   301  0070                     	ds	2
+   302  0072                     ??_DEVICE_INIT:	
+   303  0072                     ??_DELAY_125US:	
+   304                           ; 0 bytes @ 0x2
+   305                           
+   306  0072                     ??_TIMER0_INIT:	
+   307                           ; 0 bytes @ 0x2
+   308                           
+   309  0072                     ??_ENABLE_INTERRUPT:	
+   310                           ; 0 bytes @ 0x2
+   311                           
+   312  0072                     ??_SetUvWorking:	
+   313                           ; 0 bytes @ 0x2
+   314                           
+   315  0072                     ??_SetUvIdle:	
+   316                           ; 0 bytes @ 0x2
+   317                           
+   318  0072                     ??_SetUvSleep:	
+   319                           ; 0 bytes @ 0x2
+   320                           
+   321  0072                     ??_GetKeyEvent:	
+   322                           ; 0 bytes @ 0x2
+   323                           
+   324  0072                     DELAY_125US@a:	
+   325                           ; 0 bytes @ 0x2
+   326                           
+   327  0072                     GetKeyEvent@key_event:	
+   328                           ; 1 bytes @ 0x2
+   329                           
+   330                           
+   331                           ; 1 bytes @ 0x2
+   332  0072                     	ds	1
+   333  0073                     ?_DELAY_MS:	
+   334  0073                     DELAY_MS@Time:	
+   335                           ; 0 bytes @ 0x3
+   336                           
+   337                           
+   338                           ; 2 bytes @ 0x3
+   339  0073                     	ds	2
+   340  0075                     ??_DELAY_MS:	
+   341  0075                     ??_main:	
+   342                           ; 0 bytes @ 0x5
+   343                           
+   344  0075                     main@keycode:	
+   345                           ; 0 bytes @ 0x5
+   346                           
+   347                           
+   348                           ; 1 bytes @ 0x5
+   349  0075                     	ds	1
+   350                           
+   351                           	psect	cstackBANK0
+   352  0046                     __pcstackBANK0:	
+   353  0046                     DELAY_MS@a:	
+   354                           
+   355                           ; 2 bytes @ 0x0
+   356  0046                     	ds	2
+   357                           
+   358                           	psect	maintext
+   359  000B                     __pmaintext:	
+   360 ;;Data sizes: Strings 0, constant 0, data 2, bss 7, persistent 3 stack 0
+   361 ;;Auto spaces:   Size  Autos    Used
+   362 ;; COMMON          14      6      12
+   363 ;; BANK0           48      2       8
+   364 ;;
+   365 ;; Pointer list with targets:
+   366 ;;
+   367 ;; Critical Paths under _main in COMMON
+   368 ;;
+   369 ;;   _main->_DELAY_MS
+   370 ;;   _DELAY_MS->_DELAY_125US
+   371 ;;
+   372 ;; Critical Paths under _ISR in COMMON
+   373 ;;
+   374 ;;   None.
+   375 ;;
+   376 ;; Critical Paths under _main in BANK0
+   377 ;;
+   378 ;;   _main->_DELAY_MS
+   379 ;;
+   380 ;; Critical Paths under _ISR in BANK0
+   381 ;;
+   382 ;;   None.
+   383 ;;
+   384 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   385 ;;
+   386 ;;
+   387 ;;Call Graph Tables:
+   388 ;;
+   389 ;; ---------------------------------------------------------------------------------
+   390 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   391 ;; ---------------------------------------------------------------------------------
+   392 ;; (0) _main                                                 1     1      0     232
+   393 ;;                                              5 COMMON     1     1      0
+   394 ;;                        _DEVICE_INIT
+   395 ;;                        _TIMER0_INIT
+   396 ;;                   _ENABLE_INTERRUPT
+   397 ;;                          _SetUvIdle
+   398 ;;                        _GetKeyEvent
+   399 ;;                       _SetUvWorking
+   400 ;;                         _SetUvSleep
+   401 ;;                           _DELAY_MS
+   402 ;; ---------------------------------------------------------------------------------
+   403 ;; (1) _DELAY_MS                                             4     2      2     139
+   404 ;;                                              3 COMMON     2     0      2
+   405 ;;                                              0 BANK0      2     2      0
+   406 ;;                        _DELAY_125US
+   407 ;; ---------------------------------------------------------------------------------
+   408 ;; (1) _GetKeyEvent                                          1     1      0      25
+   409 ;;                                              2 COMMON     1     1      0
+   410 ;; ---------------------------------------------------------------------------------
+   411 ;; (1) _SetUvSleep                                           0     0      0       0
+   412 ;; ---------------------------------------------------------------------------------
+   413 ;; (1) _SetUvIdle                                            0     0      0       0
+   414 ;; ---------------------------------------------------------------------------------
+   415 ;; (1) _SetUvWorking                                         0     0      0       0
+   416 ;; ---------------------------------------------------------------------------------
+   417 ;; (1) _ENABLE_INTERRUPT                                     0     0      0       0
+   418 ;; ---------------------------------------------------------------------------------
+   419 ;; (1) _TIMER0_INIT                                          0     0      0       0
+   420 ;; ---------------------------------------------------------------------------------
+   421 ;; (2) _DELAY_125US                                          1     1      0      68
+   422 ;;                                              2 COMMON     1     1      0
+   423 ;; ---------------------------------------------------------------------------------
+   424 ;; (1) _DEVICE_INIT                                          0     0      0       0
+   425 ;; ---------------------------------------------------------------------------------
+   426 ;; Estimated maximum stack depth 2
+   427 ;; ---------------------------------------------------------------------------------
+   428 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   429 ;; ---------------------------------------------------------------------------------
+   430 ;; (3) _ISR                                                  2     2      0       0
+   431 ;;                                              0 COMMON     2     2      0
+   432 ;; ---------------------------------------------------------------------------------
+   433 ;; Estimated maximum stack depth 3
+   434 ;; ---------------------------------------------------------------------------------
+   435 ;; Call Graph Graphs:
+   436 ;; _main (ROOT)
+   437 ;;   _DEVICE_INIT
+   438 ;;   _TIMER0_INIT
+   439 ;;   _ENABLE_INTERRUPT
+   440 ;;   _SetUvIdle
+   441 ;;   _GetKeyEvent
+   442 ;;   _SetUvWorking
+   443 ;;   _SetUvSleep
+   444 ;;   _DELAY_MS
+   445 ;;     _DELAY_125US
+   446 ;;
+   447 ;; _ISR (ROOT)
+   448 ;;
+   449 ;; Address spaces:
+   450 ;;Name               Size   Autos  Total    Cost      Usage
+   451 ;;SFR1                 0      0       0       2        0.0%
+   452 ;;BITSFR1              0      0       0       2        0.0%
+   453 ;;CODE                 0      0       0       0        0.0%
+   454 ;;DATA                 0      0      16       3        0.0%
+   455 ;;ABS                  0      0      14       6        0.0%
+   456 ;;NULL                 0      0       0       0        0.0%
+   457 ;;STACK                0      0       2       2        0.0%
+   458 ;;BANK0               30      2       8       5       16.7%
+   459 ;;BITBANK0            30      0       0       4        0.0%
+   460 ;;SFR0                 0      0       0       1        0.0%
+   461 ;;BITSFR0              0      0       0       1        0.0%
+   462 ;;COMMON               E      6       C       1       85.7%
+   463 ;;BITCOMMON            E      0       0       0        0.0%
+   464 ;;EEDATA             100      0       0       0        0.0%
+   465                           
+   466                           
+   467 ;; *************** function _main *****************
+   468 ;; Defined at:
+   469 ;;		line 431 in file "MS86F_PWM1_HALF.C"
+   470 ;; Parameters:    Size  Location     Type
+   471 ;;		None
+   472 ;; Auto vars:     Size  Location     Type
+   473 ;;  keycode         1    5[COMMON] unsigned char 
+   474 ;; Return value:  Size  Location     Type
+   475 ;;		None               void
+   476 ;; Registers used:
+   477 ;;		wreg, status,2, status,0, pclath, cstack
+   478 ;; Tracked objects:
+   479 ;;		On entry : 17F/0
+   480 ;;		On exit  : 20/0
+   481 ;;		Unchanged: FFE00/0
+   482 ;; Data sizes:     COMMON   BANK0
+   483 ;;      Params:         0       0
+   484 ;;      Locals:         1       0
+   485 ;;      Temps:          0       0
+   486 ;;      Totals:         1       0
+   487 ;;Total ram usage:        1 bytes
+   488 ;; Hardware stack levels required when called:    3
+   489 ;; This function calls:
+   490 ;;		_DEVICE_INIT
+   491 ;;		_TIMER0_INIT
+   492 ;;		_ENABLE_INTERRUPT
+   493 ;;		_SetUvIdle
+   494 ;;		_GetKeyEvent
+   495 ;;		_SetUvWorking
+   496 ;;		_SetUvSleep
+   497 ;;		_DELAY_MS
+   498 ;; This function is called by:
+   499 ;;		Startup code after reset
+   500 ;; This function uses a non-reentrant model
+   501 ;;
+   502  000B                     _main:	
+   503                           
+   504                           ;MS86F_PWM1_HALF.C: 433: DEVICE_INIT();
+   505                           
+   506                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   507  000B  2099               	fcall	_DEVICE_INIT
+   508                           
+   509                           ;MS86F_PWM1_HALF.C: 436: TIMER0_INIT();
+   510  000C  211E               	fcall	_TIMER0_INIT
+   511                           
+   512                           ;MS86F_PWM1_HALF.C: 437: ENABLE_INTERRUPT();
+   513  000D  20F8               	fcall	_ENABLE_INTERRUPT
+   514                           
+   515                           ;MS86F_PWM1_HALF.C: 440: SetUvIdle();
+   516  000E  2111               	fcall	_SetUvIdle
+   517                           
+   518                           ;MS86F_PWM1_HALF.C: 441: working_timer=10;
+   519  000F  300A               	movlw	10
+   520  0010  00C0               	movwf	_working_timer
+   521  0011  01C1               	clrf	_working_timer+1
+   522  0012                     l2360:	
+   523                           
+   524                           ;MS86F_PWM1_HALF.C: 461: {
+   525                           ;MS86F_PWM1_HALF.C: 462: keycode=GetKeyEvent();
+   526  0012  20B6               	fcall	_GetKeyEvent
+   527  0013  00F5               	movwf	main@keycode
+   528                           
+   529                           ;MS86F_PWM1_HALF.C: 463: if(keycode==1)
+   530  0014  0B75               	decfsz	main@keycode,w
+   531  0015  281E               	goto	l2368
+   532                           
+   533                           ;MS86F_PWM1_HALF.C: 464: {
+   534                           ;MS86F_PWM1_HALF.C: 465: if(machine_state == STATE_IDL)
+   535  0016  08FA               	movf	_machine_state,f
+   536  0017  1D03               	skipz
+   537  0018  2830               	goto	l2380
+   538                           
+   539                           ;MS86F_PWM1_HALF.C: 466: {
+   540                           ;MS86F_PWM1_HALF.C: 475: {
+   541                           ;MS86F_PWM1_HALF.C: 476: led_stat=4;
+   542  0019  3004               	movlw	4
+   543  001A  00FB               	movwf	_led_stat	;volatile
+   544                           
+   545                           ;MS86F_PWM1_HALF.C: 477: working_timer=10;
+   546  001B  300A               	movlw	10
+   547  001C  00C0               	movwf	_working_timer
+   548  001D  282F               	goto	L1
+   549  001E                     l2368:	
+   550                           
+   551                           ;MS86F_PWM1_HALF.C: 481: else if(keycode==2)
+   552  001E  0875               	movf	main@keycode,w
+   553  001F  3A02               	xorlw	2
+   554  0020  1D03               	skipz
+   555  0021  2830               	goto	l2380
+   556                           
+   557                           ;MS86F_PWM1_HALF.C: 482: {
+   558                           ;MS86F_PWM1_HALF.C: 483: if(machine_state == STATE_IDL)
+   559  0022  08FA               	movf	_machine_state,f
+   560  0023  1D03               	skipz
+   561  0024  282D               	goto	l2378
+   562                           
+   563                           ;MS86F_PWM1_HALF.C: 484: {
+   564                           ;MS86F_PWM1_HALF.C: 485: machine_state = STATE_WORKING;
+   565  0025  01FA               	clrf	_machine_state
+   566  0026  0AFA               	incf	_machine_state,f
+   567                           
+   568                           ;MS86F_PWM1_HALF.C: 486: SetUvWorking();
+   569  0027  2118               	fcall	_SetUvWorking
+   570                           
+   571                           ;MS86F_PWM1_HALF.C: 487: working_timer=(60*25);
+   572  0028  30DC               	movlw	220
+   573  0029  00C0               	movwf	_working_timer
+   574  002A  3005               	movlw	5
+   575  002B  00C1               	movwf	_working_timer+1
+   576                           
+   577                           ;MS86F_PWM1_HALF.C: 488: }
+   578  002C  2830               	goto	l2380
+   579  002D                     l2378:	
+   580                           
+   581                           ;MS86F_PWM1_HALF.C: 489: else
+   582                           ;MS86F_PWM1_HALF.C: 490: {
+   583                           ;MS86F_PWM1_HALF.C: 491: machine_state = STATE_IDL;
+   584  002D  01FA               	clrf	_machine_state
+   585                           
+   586                           ;MS86F_PWM1_HALF.C: 492: working_timer=0;
+   587  002E  01C0               	clrf	_working_timer
+   588  002F                     L1:	
+   589  002F  01C1               	clrf	_working_timer+1
+   590  0030                     l2380:	
+   591                           
+   592                           ;MS86F_PWM1_HALF.C: 493: }
+   593                           ;MS86F_PWM1_HALF.C: 494: }
+   594                           ;MS86F_PWM1_HALF.C: 506: if(working_timer==0)
+   595  0030  0841               	movf	_working_timer+1,w
+   596  0031  0440               	iorwf	_working_timer,w
+   597  0032  1D03               	skipz
+   598  0033  2853               	goto	l2404
+   599                           
+   600                           ;MS86F_PWM1_HALF.C: 507: {
+   601                           ;MS86F_PWM1_HALF.C: 508: if(machine_state==STATE_BRAEK)
+   602  0034  087A               	movf	_machine_state,w
+   603  0035  3A02               	xorlw	2
+   604  0036  1D03               	skipz
+   605  0037  283F               	goto	l2390
+   606                           
+   607                           ;MS86F_PWM1_HALF.C: 509: {
+   608                           ;MS86F_PWM1_HALF.C: 510: machine_state = STATE_WORKING;
+   609  0038  01FA               	clrf	_machine_state
+   610  0039  0AFA               	incf	_machine_state,f
+   611                           
+   612                           ;MS86F_PWM1_HALF.C: 511: SetUvWorking();
+   613  003A  2118               	fcall	_SetUvWorking
+   614                           
+   615                           ;MS86F_PWM1_HALF.C: 512: working_timer=(60*25);
+   616  003B  30DC               	movlw	220
+   617  003C  00C0               	movwf	_working_timer
+   618  003D  3005               	movlw	5
+   619  003E  2847               	goto	L2
+   620  003F                     l2390:	
+   621                           ;MS86F_PWM1_HALF.C: 513: }
+   622                           
+   623                           
+   624                           ;MS86F_PWM1_HALF.C: 514: else if(machine_state==STATE_WORKING)
+   625  003F  0B7A               	decfsz	_machine_state,w
+   626  0040  2849               	goto	l891
+   627                           
+   628                           ;MS86F_PWM1_HALF.C: 515: {
+   629                           ;MS86F_PWM1_HALF.C: 516: machine_state = STATE_BRAEK;
+   630  0041  3002               	movlw	2
+   631  0042  00FA               	movwf	_machine_state
+   632                           
+   633                           ;MS86F_PWM1_HALF.C: 517: SetUvIdle();
+   634  0043  2111               	fcall	_SetUvIdle
+   635                           
+   636                           ;MS86F_PWM1_HALF.C: 518: working_timer=(60*10);
+   637  0044  3058               	movlw	88
+   638  0045  00C0               	movwf	_working_timer
+   639  0046  3002               	movlw	2
+   640  0047                     L2:	
+   641  0047  00C1               	movwf	_working_timer+1
+   642                           
+   643                           ;MS86F_PWM1_HALF.C: 519: }
+   644  0048  2853               	goto	l2404
+   645  0049                     l891:	
+   646                           
+   647                           ;MS86F_PWM1_HALF.C: 520: else
+   648                           ;MS86F_PWM1_HALF.C: 521: {
+   649                           ;MS86F_PWM1_HALF.C: 522: if(!PC5) led_stat=2;
+   650  0049  1A87               	btfsc	7,5
+   651  004A  284D               	goto	l893
+   652  004B  3002               	movlw	2
+   653  004C  2850               	goto	L3
+   654  004D                     l893:	
+   655                           
+   656                           ;MS86F_PWM1_HALF.C: 523: else if(!PC4) led_stat=4;
+   657  004D  1A07               	btfsc	7,4
+   658  004E  2852               	goto	l2402
+   659  004F  3004               	movlw	4
+   660  0050                     L3:	
+   661  0050  00FB               	movwf	_led_stat	;volatile
+   662  0051  2853               	goto	l2404
+   663  0052                     l2402:	
+   664                           
+   665                           ;MS86F_PWM1_HALF.C: 524: else SetUvSleep();
+   666  0052  210A               	fcall	_SetUvSleep
+   667  0053                     l2404:	
+   668                           
+   669                           ;MS86F_PWM1_HALF.C: 525: }
+   670                           ;MS86F_PWM1_HALF.C: 526: }
+   671                           ;MS86F_PWM1_HALF.C: 528: DELAY_MS(10);
+   672  0053  300A               	movlw	10
+   673  0054  00F3               	movwf	?_DELAY_MS
+   674  0055  01F4               	clrf	?_DELAY_MS+1
+   675  0056  20D2               	fcall	_DELAY_MS
+   676  0057  2812               	goto	l2360
+   677  0058                     __end_of_main:	
+   678                           
+   679                           	psect	text349
+   680  00D2                     __ptext349:	
+   681 ;; =============== function _main ends ============
+   682                           
+   683                           
+   684 ;; *************** function _DELAY_MS *****************
+   685 ;; Defined at:
+   686 ;;		line 187 in file "MS86F_PWM1_HALF.C"
+   687 ;; Parameters:    Size  Location     Type
+   688 ;;  Time            2    3[COMMON] unsigned short 
+   689 ;; Auto vars:     Size  Location     Type
+   690 ;;  a               2    0[BANK0 ] unsigned short 
+   691 ;; Return value:  Size  Location     Type
+   692 ;;		None               void
+   693 ;; Registers used:
+   694 ;;		wreg, status,2, status,0, pclath, cstack
+   695 ;; Tracked objects:
+   696 ;;		On entry : 20/0
+   697 ;;		On exit  : 20/0
+   698 ;;		Unchanged: FFE00/0
+   699 ;; Data sizes:     COMMON   BANK0
+   700 ;;      Params:         2       0
+   701 ;;      Locals:         0       2
+   702 ;;      Temps:          0       0
+   703 ;;      Totals:         2       2
+   704 ;;Total ram usage:        4 bytes
+   705 ;; Hardware stack levels used:    1
+   706 ;; Hardware stack levels required when called:    2
+   707 ;; This function calls:
+   708 ;;		_DELAY_125US
+   709 ;; This function is called by:
+   710 ;;		_main
+   711 ;; This function uses a non-reentrant model
+   712 ;;
+   713  00D2                     _DELAY_MS:	
+   714                           
+   715                           ;MS86F_PWM1_HALF.C: 188: unsigned short a;
+   716                           ;MS86F_PWM1_HALF.C: 190: Time<<=3;
+   717                           
+   718                           ; Regs used in _DELAY_MS: [wreg+status,2+status,0+pclath+cstack]
+   719  00D2  1003               	clrc
+   720  00D3  0DF3               	rlf	DELAY_MS@Time,f
+   721  00D4  0DF4               	rlf	DELAY_MS@Time+1,f
+   722  00D5  1003               	clrc
+   723  00D6  0DF3               	rlf	DELAY_MS@Time,f
+   724  00D7  0DF4               	rlf	DELAY_MS@Time+1,f
+   725  00D8  1003               	clrc
+   726  00D9  0DF3               	rlf	DELAY_MS@Time,f
+   727  00DA  0DF4               	rlf	DELAY_MS@Time+1,f
+   728                           
+   729                           ;MS86F_PWM1_HALF.C: 192: for(a=0;a<Time;a++)
+   730  00DB  01C6               	clrf	DELAY_MS@a
+   731  00DC  01C7               	clrf	DELAY_MS@a+1
+   732  00DD                     l2346:	
+   733  00DD  0874               	movf	DELAY_MS@Time+1,w
+   734  00DE  0247               	subwf	DELAY_MS@a+1,w
+   735  00DF  1D03               	skipz
+   736  00E0  28E3               	goto	u585
+   737  00E1  0873               	movf	DELAY_MS@Time,w
+   738  00E2  0246               	subwf	DELAY_MS@a,w
+   739  00E3                     u585:	
+   740  00E3  1803               	btfsc	3,0
+   741  00E4  0008               	return
+   742                           
+   743                           ;MS86F_PWM1_HALF.C: 193: {
+   744                           ;MS86F_PWM1_HALF.C: 194: DELAY_125US();
+   745  00E5  2102               	fcall	_DELAY_125US
+   746  00E6  1283               	bcf	3,5	;RP0=0, select bank0
+   747  00E7  0AC6               	incf	DELAY_MS@a,f
+   748  00E8  1903               	skipnz
+   749  00E9  0AC7               	incf	DELAY_MS@a+1,f
+   750  00EA  28DD               	goto	l2346
+   751  00EB                     __end_of_DELAY_MS:	
+   752                           
+   753                           	psect	text350
+   754  00B6                     __ptext350:	
+   755 ;; =============== function _DELAY_MS ends ============
+   756                           
+   757                           
+   758 ;; *************** function _GetKeyEvent *****************
+   759 ;; Defined at:
+   760 ;;		line 406 in file "MS86F_PWM1_HALF.C"
+   761 ;; Parameters:    Size  Location     Type
+   762 ;;		None
+   763 ;; Auto vars:     Size  Location     Type
+   764 ;;  key_event       1    2[COMMON] unsigned char 
+   765 ;; Return value:  Size  Location     Type
+   766 ;;                  1    wreg      unsigned char 
+   767 ;; Registers used:
+   768 ;;		wreg, status,2, status,0
+   769 ;; Tracked objects:
+   770 ;;		On entry : 20/0
+   771 ;;		On exit  : 20/0
+   772 ;;		Unchanged: FFFDF/0
+   773 ;; Data sizes:     COMMON   BANK0
+   774 ;;      Params:         0       0
+   775 ;;      Locals:         1       0
+   776 ;;      Temps:          0       0
+   777 ;;      Totals:         1       0
+   778 ;;Total ram usage:        1 bytes
+   779 ;; Hardware stack levels used:    1
+   780 ;; Hardware stack levels required when called:    1
+   781 ;; This function calls:
+   782 ;;		Nothing
+   783 ;; This function is called by:
+   784 ;;		_main
+   785 ;; This function uses a non-reentrant model
+   786 ;;
+   787  00B6                     _GetKeyEvent:	
+   788                           
+   789                           ;MS86F_PWM1_HALF.C: 407: static unsigned char keytime=0;
+   790                           ;MS86F_PWM1_HALF.C: 408: unsigned char key_event=0;
+   791                           
+   792                           ; Regs used in _GetKeyEvent: [wreg+status,2+status,0]
+   793  00B6  01F2               	clrf	GetKeyEvent@key_event
+   794                           
+   795                           ;MS86F_PWM1_HALF.C: 409: if(PA2==0)
+   796  00B7  1905               	btfsc	5,2
+   797  00B8  28C5               	goto	l2248
+   798                           
+   799                           ;MS86F_PWM1_HALF.C: 410: {
+   800                           ;MS86F_PWM1_HALF.C: 411: if(keytime<200)
+   801  00B9  30C8               	movlw	200
+   802  00BA  0276               	subwf	GetKeyEvent@keytime,w
+   803  00BB  1803               	skipnc
+   804  00BC  28D0               	goto	l2256
+   805  00BD  30C8               	movlw	200
+   806                           
+   807                           ;MS86F_PWM1_HALF.C: 412: {
+   808                           ;MS86F_PWM1_HALF.C: 413: keytime++;
+   809  00BE  0AF6               	incf	GetKeyEvent@keytime,f
+   810                           
+   811                           ;MS86F_PWM1_HALF.C: 414: if(keytime>=200)key_event = 2;
+   812  00BF  0276               	subwf	GetKeyEvent@keytime,w
+   813  00C0  1C03               	skipc
+   814  00C1  28D0               	goto	l2256
+   815  00C2  3002               	movlw	2
+   816  00C3  00F2               	movwf	GetKeyEvent@key_event
+   817  00C4  28D0               	goto	l2256
+   818  00C5                     l2248:	
+   819                           
+   820                           ;MS86F_PWM1_HALF.C: 417: else
+   821                           ;MS86F_PWM1_HALF.C: 418: {
+   822                           ;MS86F_PWM1_HALF.C: 419: if(keytime>10 && keytime<200)key_event=1;
+   823  00C5  300B               	movlw	11
+   824  00C6  0276               	subwf	GetKeyEvent@keytime,w
+   825  00C7  1C03               	skipc
+   826  00C8  28CF               	goto	l2254
+   827  00C9  30C8               	movlw	200
+   828  00CA  0276               	subwf	GetKeyEvent@keytime,w
+   829  00CB  1803               	skipnc
+   830  00CC  28CF               	goto	l2254
+   831  00CD  01F2               	clrf	GetKeyEvent@key_event
+   832  00CE  0AF2               	incf	GetKeyEvent@key_event,f
+   833  00CF                     l2254:	
+   834                           
+   835                           ;MS86F_PWM1_HALF.C: 420: keytime=0;
+   836  00CF  01F6               	clrf	GetKeyEvent@keytime
+   837  00D0                     l2256:	
+   838                           
+   839                           ;MS86F_PWM1_HALF.C: 421: }
+   840                           ;MS86F_PWM1_HALF.C: 422: return key_event;
+   841  00D0  0872               	movf	GetKeyEvent@key_event,w
+   842  00D1  0008               	return
+   843  00D2                     __end_of_GetKeyEvent:	
+   844                           
+   845                           	psect	text351
+   846  010A                     __ptext351:	
+   847 ;; =============== function _GetKeyEvent ends ============
+   848                           
+   849                           
+   850 ;; *************** function _SetUvSleep *****************
+   851 ;; Defined at:
+   852 ;;		line 393 in file "MS86F_PWM1_HALF.C"
+   853 ;; Parameters:    Size  Location     Type
+   854 ;;		None
+   855 ;; Auto vars:     Size  Location     Type
+   856 ;;		None
+   857 ;; Return value:  Size  Location     Type
+   858 ;;		None               void
+   859 ;; Registers used:
+   860 ;;		status,2
+   861 ;; Tracked objects:
+   862 ;;		On entry : 20/0
+   863 ;;		On exit  : 20/0
+   864 ;;		Unchanged: FFFDF/0
+   865 ;; Data sizes:     COMMON   BANK0
+   866 ;;      Params:         0       0
+   867 ;;      Locals:         0       0
+   868 ;;      Temps:          0       0
+   869 ;;      Totals:         0       0
+   870 ;;Total ram usage:        0 bytes
+   871 ;; Hardware stack levels used:    1
+   872 ;; Hardware stack levels required when called:    1
+   873 ;; This function calls:
+   874 ;;		Nothing
+   875 ;; This function is called by:
+   876 ;;		_main
+   877 ;; This function uses a non-reentrant model
+   878 ;;
+   879  010A                     _SetUvSleep:	
+   880                           
+   881                           ;MS86F_PWM1_HALF.C: 394: led_stat = 0;
+   882                           
+   883                           ; Regs used in _SetUvSleep: [status,2]
+   884  010A  01FB               	clrf	_led_stat	;volatile
+   885                           
+   886                           ;MS86F_PWM1_HALF.C: 396: RA4=1;
+   887  010B  1605               	bsf	5,4
+   888                           
+   889                           ;MS86F_PWM1_HALF.C: 397: RA7=0;
+   890  010C  1385               	bcf	5,7
+   891                           
+   892                           ;MS86F_PWM1_HALF.C: 398: PA6=0;
+   893  010D  1305               	bcf	5,6
+   894                           
+   895                           ;MS86F_PWM1_HALF.C: 403: keytime=0;
+   896  010E  01C0               	clrf	_working_timer
+   897  010F  01C1               	clrf	_working_timer+1
+   898  0110  0008               	return
+   899  0111                     __end_of_SetUvSleep:	
+   900                           
+   901                           	psect	text352
+   902  0111                     __ptext352:	
+   903 ;; =============== function _SetUvSleep ends ============
+   904                           
+   905                           
+   906 ;; *************** function _SetUvIdle *****************
+   907 ;; Defined at:
+   908 ;;		line 382 in file "MS86F_PWM1_HALF.C"
+   909 ;; Parameters:    Size  Location     Type
+   910 ;;		None
+   911 ;; Auto vars:     Size  Location     Type
+   912 ;;		None
+   913 ;; Return value:  Size  Location     Type
+   914 ;;		None               void
+   915 ;; Registers used:
+   916 ;;		wreg
+   917 ;; Tracked objects:
+   918 ;;		On entry : 0/20
+   919 ;;		On exit  : 20/0
+   920 ;;		Unchanged: FFFDF/0
+   921 ;; Data sizes:     COMMON   BANK0
+   922 ;;      Params:         0       0
+   923 ;;      Locals:         0       0
+   924 ;;      Temps:          0       0
+   925 ;;      Totals:         0       0
+   926 ;;Total ram usage:        0 bytes
+   927 ;; Hardware stack levels used:    1
+   928 ;; Hardware stack levels required when called:    1
+   929 ;; This function calls:
+   930 ;;		Nothing
+   931 ;; This function is called by:
+   932 ;;		_main
+   933 ;; This function uses a non-reentrant model
+   934 ;;
+   935  0111                     _SetUvIdle:	
+   936  0111  3004               	movlw	4
+   937                           
+   938                           ;MS86F_PWM1_HALF.C: 384: RA4=1;
+   939                           
+   940                           ; Regs used in _SetUvIdle: [wreg]
+   941  0112  1283               	bcf	3,5	;RP0=0, select bank0
+   942  0113  1605               	bsf	5,4
+   943                           
+   944                           ;MS86F_PWM1_HALF.C: 385: RA7=0;
+   945  0114  1385               	bcf	5,7
+   946                           
+   947                           ;MS86F_PWM1_HALF.C: 386: PA6=0;
+   948  0115  1305               	bcf	5,6
+   949                           
+   950                           ;MS86F_PWM1_HALF.C: 388: led_stat = 4;
+   951  0116  00FB               	movwf	_led_stat	;volatile
+   952  0117  0008               	return
+   953  0118                     __end_of_SetUvIdle:	
+   954                           
+   955                           	psect	text353
+   956  0118                     __ptext353:	
+   957 ;; =============== function _SetUvIdle ends ============
+   958                           
+   959                           
+   960 ;; *************** function _SetUvWorking *****************
+   961 ;; Defined at:
+   962 ;;		line 373 in file "MS86F_PWM1_HALF.C"
+   963 ;; Parameters:    Size  Location     Type
+   964 ;;		None
+   965 ;; Auto vars:     Size  Location     Type
+   966 ;;		None
+   967 ;; Return value:  Size  Location     Type
+   968 ;;		None               void
+   969 ;; Registers used:
+   970 ;;		None
+   971 ;; Tracked objects:
+   972 ;;		On entry : 20/0
+   973 ;;		On exit  : 20/0
+   974 ;;		Unchanged: FFFDF/0
+   975 ;; Data sizes:     COMMON   BANK0
+   976 ;;      Params:         0       0
+   977 ;;      Locals:         0       0
+   978 ;;      Temps:          0       0
+   979 ;;      Totals:         0       0
+   980 ;;Total ram usage:        0 bytes
+   981 ;; Hardware stack levels used:    1
+   982 ;; Hardware stack levels required when called:    1
+   983 ;; This function calls:
+   984 ;;		Nothing
+   985 ;; This function is called by:
+   986 ;;		_main
+   987 ;; This function uses a non-reentrant model
+   988 ;;
+   989  0118                     _SetUvWorking:	
+   990                           
+   991                           ;MS86F_PWM1_HALF.C: 376: RA4=0;
+   992                           
+   993                           ; Regs used in _SetUvWorking: []
+   994  0118  1205               	bcf	5,4
+   995                           
+   996                           ;MS86F_PWM1_HALF.C: 377: RA7=1;
+   997  0119  1785               	bsf	5,7
+   998                           
+   999                           ;MS86F_PWM1_HALF.C: 378: PA6=1;
+  1000  011A  1705               	bsf	5,6
+  1001                           
+  1002                           ;MS86F_PWM1_HALF.C: 379: led_stat = 1;
+  1003  011B  01FB               	clrf	_led_stat	;volatile
+  1004  011C  0AFB               	incf	_led_stat,f	;volatile
+  1005  011D  0008               	return
+  1006  011E                     __end_of_SetUvWorking:	
+  1007                           
+  1008                           	psect	text354
+  1009  00F8                     __ptext354:	
+  1010 ;; =============== function _SetUvWorking ends ============
+  1011                           
+  1012                           
+  1013 ;; *************** function _ENABLE_INTERRUPT *****************
+  1014 ;; Defined at:
+  1015 ;;		line 309 in file "MS86F_PWM1_HALF.C"
+  1016 ;; Parameters:    Size  Location     Type
+  1017 ;;		None
+  1018 ;; Auto vars:     Size  Location     Type
+  1019 ;;		None
+  1020 ;; Return value:  Size  Location     Type
+  1021 ;;		None               void
+  1022 ;; Registers used:
+  1023 ;;		None
+  1024 ;; Tracked objects:
+  1025 ;;		On entry : 17F/20
+  1026 ;;		On exit  : 17F/20
+  1027 ;;		Unchanged: FFE80/0
+  1028 ;; Data sizes:     COMMON   BANK0
+  1029 ;;      Params:         0       0
+  1030 ;;      Locals:         0       0
+  1031 ;;      Temps:          0       0
+  1032 ;;      Totals:         0       0
+  1033 ;;Total ram usage:        0 bytes
+  1034 ;; Hardware stack levels used:    1
+  1035 ;; Hardware stack levels required when called:    1
+  1036 ;; This function calls:
+  1037 ;;		Nothing
+  1038 ;; This function is called by:
+  1039 ;;		_main
+  1040 ;; This function uses a non-reentrant model
+  1041 ;;
+  1042  00F8                     _ENABLE_INTERRUPT:	
+  1043                           
+  1044                           ;MS86F_PWM1_HALF.C: 310: T0IF = 0;
+  1045                           
+  1046                           ; Regs used in _ENABLE_INTERRUPT: []
+  1047  00F8  110B               	bcf	11,2
+  1048                           
+  1049                           ;MS86F_PWM1_HALF.C: 311: T0IE = 1;
+  1050  00F9  168B               	bsf	11,5
+  1051                           
+  1052                           ;MS86F_PWM1_HALF.C: 312: T0ON = 1;
+  1053  00FA  1283               	bcf	3,5	;RP0=0, select bank0
+  1054  00FB  159F               	bsf	31,3
+  1055                           
+  1056                           ;MS86F_PWM1_HALF.C: 314: INTEDG = 0;
+  1057  00FC  1683               	bsf	3,5	;RP0=1, select bank1
+  1058  00FD  1301               	bcf	1,6
+  1059                           
+  1060                           ;MS86F_PWM1_HALF.C: 315: INTF = 0;
+  1061  00FE  108B               	bcf	11,1
+  1062                           
+  1063                           ;MS86F_PWM1_HALF.C: 316: INTE = 1;
+  1064  00FF  160B               	bsf	11,4
+  1065                           
+  1066                           ;MS86F_PWM1_HALF.C: 318: GIE = 1;
+  1067  0100  178B               	bsf	11,7
+  1068  0101  0008               	return
+  1069  0102                     __end_of_ENABLE_INTERRUPT:	
+  1070                           
+  1071                           	psect	text355
+  1072  011E                     __ptext355:	
+  1073 ;; =============== function _ENABLE_INTERRUPT ends ============
+  1074                           
+  1075                           
+  1076 ;; *************** function _TIMER0_INIT *****************
+  1077 ;; Defined at:
+  1078 ;;		line 297 in file "MS86F_PWM1_HALF.C"
+  1079 ;; Parameters:    Size  Location     Type
+  1080 ;;		None
+  1081 ;; Auto vars:     Size  Location     Type
+  1082 ;;		None
+  1083 ;; Return value:  Size  Location     Type
+  1084 ;;		None               void
+  1085 ;; Registers used:
+  1086 ;;		wreg, status,2
+  1087 ;; Tracked objects:
+  1088 ;;		On entry : 17F/0
+  1089 ;;		On exit  : 17F/20
+  1090 ;;		Unchanged: FFE80/0
+  1091 ;; Data sizes:     COMMON   BANK0
+  1092 ;;      Params:         0       0
+  1093 ;;      Locals:         0       0
+  1094 ;;      Temps:          0       0
+  1095 ;;      Totals:         0       0
+  1096 ;;Total ram usage:        0 bytes
+  1097 ;; Hardware stack levels used:    1
+  1098 ;; Hardware stack levels required when called:    1
+  1099 ;; This function calls:
+  1100 ;;		Nothing
+  1101 ;; This function is called by:
+  1102 ;;		_main
+  1103 ;; This function uses a non-reentrant model
+  1104 ;;
+  1105  011E                     _TIMER0_INIT:	
+  1106                           
+  1107                           ;MS86F_PWM1_HALF.C: 298: T0CON0 = 0B00000000;
+  1108                           
+  1109                           ; Regs used in _TIMER0_INIT: [wreg+status,2]
+  1110  011E  019F               	clrf	31	;volatile
+  1111                           
+  1112                           ;MS86F_PWM1_HALF.C: 299: OPTION = 0B00000111;
+  1113  011F  3007               	movlw	7
+  1114  0120  1683               	bsf	3,5	;RP0=1, select bank1
+  1115  0121  0081               	movwf	1	;volatile
+  1116  0122  0008               	return
+  1117  0123                     __end_of_TIMER0_INIT:	
+  1118                           
+  1119                           	psect	text356
+  1120  0102                     __ptext356:	
+  1121 ;; =============== function _TIMER0_INIT ends ============
+  1122                           
+  1123                           
+  1124 ;; *************** function _DELAY_125US *****************
+  1125 ;; Defined at:
+  1126 ;;		line 178 in file "MS86F_PWM1_HALF.C"
+  1127 ;; Parameters:    Size  Location     Type
+  1128 ;;		None
+  1129 ;; Auto vars:     Size  Location     Type
+  1130 ;;  a               1    2[COMMON] unsigned char 
+  1131 ;; Return value:  Size  Location     Type
+  1132 ;;		None               void
+  1133 ;; Registers used:
+  1134 ;;		wreg, status,2, status,0
+  1135 ;; Tracked objects:
+  1136 ;;		On entry : 20/0
+  1137 ;;		On exit  : 0/0
+  1138 ;;		Unchanged: FFE00/0
+  1139 ;; Data sizes:     COMMON   BANK0
+  1140 ;;      Params:         0       0
+  1141 ;;      Locals:         1       0
+  1142 ;;      Temps:          0       0
+  1143 ;;      Totals:         1       0
+  1144 ;;Total ram usage:        1 bytes
+  1145 ;; Hardware stack levels used:    1
+  1146 ;; Hardware stack levels required when called:    1
+  1147 ;; This function calls:
+  1148 ;;		Nothing
+  1149 ;; This function is called by:
+  1150 ;;		_DELAY_MS
+  1151 ;; This function uses a non-reentrant model
+  1152 ;;
+  1153  0102                     _DELAY_125US:	
+  1154                           
+  1155                           ;MS86F_PWM1_HALF.C: 179: unsigned char a;
+  1156                           ;MS86F_PWM1_HALF.C: 181: for(a=0;a<125;a++)
+  1157                           
+  1158                           ; Regs used in _DELAY_125US: [wreg+status,2+status,0]
+  1159  0102  01F2               	clrf	DELAY_125US@a
+  1160  0103                     l818:	
+  1161  0103  0064               	clrwdt	;#
+  1162  0104  307D               	movlw	125
+  1163  0105  0AF2               	incf	DELAY_125US@a,f
+  1164  0106  0272               	subwf	DELAY_125US@a,w
+  1165  0107  1803               	btfsc	3,0
+  1166  0108  0008               	return
+  1167  0109  2903               	goto	l818
+  1168  010A                     __end_of_DELAY_125US:	
+  1169                           
+  1170                           	psect	text357
+  1171  0099                     __ptext357:	
+  1172 ;; =============== function _DELAY_125US ends ============
+  1173                           
+  1174                           
+  1175 ;; *************** function _DEVICE_INIT *****************
+  1176 ;; Defined at:
+  1177 ;;		line 80 in file "MS86F_PWM1_HALF.C"
+  1178 ;; Parameters:    Size  Location     Type
+  1179 ;;		None
+  1180 ;; Auto vars:     Size  Location     Type
+  1181 ;;		None
+  1182 ;; Return value:  Size  Location     Type
+  1183 ;;		None               void
+  1184 ;; Registers used:
+  1185 ;;		wreg, status,2
+  1186 ;; Tracked objects:
+  1187 ;;		On entry : 17F/0
+  1188 ;;		On exit  : 17F/0
+  1189 ;;		Unchanged: FFE80/0
+  1190 ;; Data sizes:     COMMON   BANK0
+  1191 ;;      Params:         0       0
+  1192 ;;      Locals:         0       0
+  1193 ;;      Temps:          0       0
+  1194 ;;      Totals:         0       0
+  1195 ;;Total ram usage:        0 bytes
+  1196 ;; Hardware stack levels used:    1
+  1197 ;; Hardware stack levels required when called:    1
+  1198 ;; This function calls:
+  1199 ;;		Nothing
+  1200 ;; This function is called by:
+  1201 ;;		_main
+  1202 ;; This function uses a non-reentrant model
+  1203 ;;
+  1204  0099                     _DEVICE_INIT:	
+  1205                           
+  1206                           ;MS86F_PWM1_HALF.C: 81: OSCCON = 0B01110001;
+  1207                           
+  1208                           ; Regs used in _DEVICE_INIT: [wreg+status,2]
+  1209  0099  3071               	movlw	113
+  1210  009A  1683               	bsf	3,5	;RP0=1, select bank1
+  1211  009B  008F               	movwf	15	;volatile
+  1212                           
+  1213                           ;MS86F_PWM1_HALF.C: 84: INTCON = 0B00000000;
+  1214  009C  018B               	clrf	11	;volatile
+  1215                           
+  1216                           ;MS86F_PWM1_HALF.C: 85: OPTION = 0B00001000;
+  1217  009D  3008               	movlw	8
+  1218  009E  0081               	movwf	1	;volatile
+  1219                           
+  1220                           ;MS86F_PWM1_HALF.C: 87: PORTA = 0B00010000;
+  1221  009F  3010               	movlw	16
+  1222  00A0  1283               	bcf	3,5	;RP0=0, select bank0
+  1223  00A1  0085               	movwf	5	;volatile
+  1224                           
+  1225                           ;MS86F_PWM1_HALF.C: 88: TRISA = 0B00101111;
+  1226  00A2  302F               	movlw	47
+  1227  00A3  1683               	bsf	3,5	;RP0=1, select bank1
+  1228  00A4  0085               	movwf	5	;volatile
+  1229                           
+  1230                           ;MS86F_PWM1_HALF.C: 89: WPUA = 0B00101111;
+  1231  00A5  0095               	movwf	21	;volatile
+  1232                           
+  1233                           ;MS86F_PWM1_HALF.C: 91: PORTC = 0B00000010;
+  1234  00A6  3002               	movlw	2
+  1235  00A7  1283               	bcf	3,5	;RP0=0, select bank0
+  1236  00A8  0087               	movwf	7	;volatile
+  1237                           
+  1238                           ;MS86F_PWM1_HALF.C: 92: TRISC = 0B11111101;
+  1239  00A9  30FD               	movlw	253
+  1240  00AA  1683               	bsf	3,5	;RP0=1, select bank1
+  1241  00AB  0087               	movwf	7	;volatile
+  1242                           
+  1243                           ;MS86F_PWM1_HALF.C: 93: WPUC = 0B11111101;
+  1244  00AC  0093               	movwf	19	;volatile
+  1245                           
+  1246                           ;MS86F_PWM1_HALF.C: 95: PSRCA = 0B11111111;
+  1247  00AD  30FF               	movlw	255
+  1248  00AE  0088               	movwf	8	;volatile
+  1249                           
+  1250                           ;MS86F_PWM1_HALF.C: 96: PSRCC = 0B11111111;
+  1251  00AF  0094               	movwf	20	;volatile
+  1252                           
+  1253                           ;MS86F_PWM1_HALF.C: 97: PSINKA = 0B11111111;
+  1254  00B0  0097               	movwf	23	;volatile
+  1255                           
+  1256                           ;MS86F_PWM1_HALF.C: 98: PSINKC = 0B11111111;
+  1257  00B1  009F               	movwf	31	;volatile
+  1258                           
+  1259                           ;MS86F_PWM1_HALF.C: 99: MSCON = 0B00110000;
+  1260  00B2  3030               	movlw	48
+  1261  00B3  1283               	bcf	3,5	;RP0=0, select bank0
+  1262  00B4  009B               	movwf	27	;volatile
+  1263  00B5  0008               	return
+  1264  00B6                     __end_of_DEVICE_INIT:	
+  1265                           
+  1266                           	psect	text358
+  1267  0058                     __ptext358:	
+  1268 ;; =============== function _DEVICE_INIT ends ============
+  1269                           
+  1270                           
+  1271 ;; *************** function _ISR *****************
+  1272 ;; Defined at:
+  1273 ;;		line 205 in file "MS86F_PWM1_HALF.C"
+  1274 ;; Parameters:    Size  Location     Type
+  1275 ;;		None
+  1276 ;; Auto vars:     Size  Location     Type
+  1277 ;;		None
+  1278 ;; Return value:  Size  Location     Type
+  1279 ;;		None               void
+  1280 ;; Registers used:
+  1281 ;;		wreg, status,2, status,0
+  1282 ;; Tracked objects:
+  1283 ;;		On entry : 0/0
+  1284 ;;		On exit  : 0/0
+  1285 ;;		Unchanged: FFFDF/0
+  1286 ;; Data sizes:     COMMON   BANK0
+  1287 ;;      Params:         0       0
+  1288 ;;      Locals:         0       0
+  1289 ;;      Temps:          2       0
+  1290 ;;      Totals:         2       0
+  1291 ;;Total ram usage:        2 bytes
+  1292 ;; Hardware stack levels used:    1
+  1293 ;; This function calls:
+  1294 ;;		Nothing
+  1295 ;; This function is called by:
+  1296 ;;		Interrupt level 1
+  1297 ;; This function uses a non-reentrant model
+  1298 ;;
+  1299  0058                     _ISR:	
+  1300                           
+  1301                           ;MS86F_PWM1_HALF.C: 206: if(INTE&&INTF)
+  1302  0058  1A0B               	btfsc	11,4
+  1303  0059  1C8B               	btfss	11,1
+  1304  005A  285C               	goto	i1l829
+  1305                           
+  1306                           ;MS86F_PWM1_HALF.C: 207: {
+  1307                           ;MS86F_PWM1_HALF.C: 208: INTF = 0;
+  1308  005B  108B               	bcf	11,1
+  1309  005C                     i1l829:	
+  1310                           
+  1311                           ;MS86F_PWM1_HALF.C: 209: }
+  1312                           ;MS86F_PWM1_HALF.C: 211: if(T0IE&&T0IF)
+  1313  005C  1A8B               	btfsc	11,5
+  1314  005D  1D0B               	btfss	11,2
+  1315  005E  2892               	goto	i1l844
+  1316  005F  3006               	movlw	6
+  1317                           
+  1318                           ;MS86F_PWM1_HALF.C: 212: {
+  1319                           ;MS86F_PWM1_HALF.C: 213: T0IF = 0;
+  1320  0060  110B               	bcf	11,2
+  1321                           
+  1322                           ;MS86F_PWM1_HALF.C: 214: TMR0 = 6;
+  1323  0061  1283               	bcf	3,5	;RP0=0, select bank0
+  1324  0062  0081               	movwf	1	;volatile
+  1325                           
+  1326                           ;MS86F_PWM1_HALF.C: 215: T0_cnt++;
+  1327  0063  0AF7               	incf	_T0_cnt,f	;volatile
+  1328                           
+  1329                           ;MS86F_PWM1_HALF.C: 216: if(T0_cnt>=125)
+  1330  0064  307D               	movlw	125
+  1331  0065  0277               	subwf	_T0_cnt,w	;volatile
+  1332  0066  1C03               	skipc
+  1333  0067  2873               	goto	i1l2190
+  1334                           
+  1335                           ;MS86F_PWM1_HALF.C: 217: {
+  1336                           ;MS86F_PWM1_HALF.C: 218: if(working_timer)working_timer--;
+  1337  0068  0841               	movf	_working_timer+1,w
+  1338  0069  0440               	iorwf	_working_timer,w
+  1339  006A  1903               	skipnz
+  1340  006B  2872               	goto	i1l2188
+  1341  006C  3001               	movlw	1
+  1342  006D  02C0               	subwf	_working_timer,f
+  1343  006E  3000               	movlw	0
+  1344  006F  1C03               	skipc
+  1345  0070  03C1               	decf	_working_timer+1,f
+  1346  0071  02C1               	subwf	_working_timer+1,f
+  1347  0072                     i1l2188:	
+  1348                           
+  1349                           ;MS86F_PWM1_HALF.C: 219: T0_cnt=0;
+  1350  0072  01F7               	clrf	_T0_cnt	;volatile
+  1351  0073                     i1l2190:	
+  1352                           
+  1353                           ;MS86F_PWM1_HALF.C: 220: }
+  1354                           ;MS86F_PWM1_HALF.C: 262: if(led_stat==0)
+  1355  0073  08FB               	movf	_led_stat,f
+  1356  0074  1D03               	skipz
+  1357  0075  2878               	goto	i1l2194
+  1358  0076                     i1l2192:	
+  1359                           
+  1360                           ;MS86F_PWM1_HALF.C: 263: {
+  1361                           ;MS86F_PWM1_HALF.C: 264: PC1=1;
+  1362  0076  1487               	bsf	7,1
+  1363                           
+  1364                           ;MS86F_PWM1_HALF.C: 265: }
+  1365  0077  2892               	goto	i1l844
+  1366  0078                     i1l2194:	
+  1367                           
+  1368                           ;MS86F_PWM1_HALF.C: 266: else if(led_stat<4)
+  1369  0078  3004               	movlw	4
+  1370  0079  027B               	subwf	_led_stat,w	;volatile
+  1371  007A  1803               	skipnc
+  1372  007B  288B               	goto	i1l2208
+  1373                           
+  1374                           ;MS86F_PWM1_HALF.C: 267: {
+  1375                           ;MS86F_PWM1_HALF.C: 268: delay++;
+  1376  007C  0AF9               	incf	_delay,f	;volatile
+  1377                           
+  1378                           ;MS86F_PWM1_HALF.C: 269: if(led_stat==2)delay++;
+  1379  007D  087B               	movf	_led_stat,w	;volatile
+  1380  007E  3A02               	xorlw	2
+  1381  007F  1D03               	skipz
+  1382  0080  2883               	goto	i1l2202
+  1383  0081                     i1l2200:	
+  1384  0081  0AF9               	incf	_delay,f	;volatile
+  1385  0082  2887               	goto	i1l2206
+  1386  0083                     i1l2202:	
+  1387                           
+  1388                           ;MS86F_PWM1_HALF.C: 270: else if(led_stat==3)delay++;
+  1389  0083  087B               	movf	_led_stat,w	;volatile
+  1390  0084  3A03               	xorlw	3
+  1391  0085  1903               	btfsc	3,2
+  1392  0086  2881               	goto	i1l2200
+  1393  0087                     i1l2206:	
+  1394                           
+  1395                           ;MS86F_PWM1_HALF.C: 272: if(delay<128)
+  1396  0087  3080               	movlw	128
+  1397  0088  0279               	subwf	_delay,w	;volatile
+  1398  0089  1803               	skipnc
+  1399  008A  288D               	goto	i1l2210
+  1400  008B                     i1l2208:	
+  1401                           
+  1402                           ;MS86F_PWM1_HALF.C: 273: {
+  1403                           ;MS86F_PWM1_HALF.C: 274: PC1=0;
+  1404  008B  1087               	bcf	7,1
+  1405                           
+  1406                           ;MS86F_PWM1_HALF.C: 275: }
+  1407  008C  2892               	goto	i1l844
+  1408  008D                     i1l2210:	
+  1409                           
+  1410                           ;MS86F_PWM1_HALF.C: 276: else if(delay<254)
+  1411  008D  30FE               	movlw	254
+  1412  008E  0279               	subwf	_delay,w	;volatile
+  1413  008F  1C03               	btfss	3,0
+  1414  0090  2876               	goto	i1l2192
+  1415                           
+  1416                           ;MS86F_PWM1_HALF.C: 280: else delay=0;
+  1417  0091  01F9               	clrf	_delay	;volatile
+  1418  0092                     i1l844:	
+  1419  0092  0871               	movf	??_ISR+1,w
+  1420  0093  008A               	movwf	10
+  1421  0094  0E70               	swapf	??_ISR^(0+-128),w
+  1422  0095  0083               	movwf	3
+  1423  0096  0EFE               	swapf	126,f
+  1424  0097  0E7E               	swapf	126,w
+  1425  0098  0009               	retfie
+  1426  0099                     __end_of_ISR:	
+  1427                           
+  1428                           	psect	intentry
+  1429  0004                     __pintentry:	
+  1430                           ; Regs used in _ISR: [wreg+status,2+status,0]
+  1431                           
+  1432  0004                     interrupt_function:	
+  1433  007E                     saved_w	set	btemp
+  1434  0004  00FE               	movwf	btemp
+  1435  0005  0E03               	swapf	3,w
+  1436  0006  00F0               	movwf	??_ISR
+  1437  0007  080A               	movf	10,w
+  1438  0008  00F1               	movwf	??_ISR+1
+  1439  0009  2858               	ljmp	_ISR
+  1440                           
+  1441                           	psect	text359
+  1442  0000                     __ptext359:	
+  1443 ;; =============== function _ISR ends ============
+  1444                           
+  1445  007E                     btemp	set	126	;btemp
+  1446  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sun May 10 22:43:37 2020
+
+                      _C1R 08CA                        _C2R 08D2                        l820 0000  
+                      l809 0000                        l818 0103                        l850 0000  
+                      l826 0000                        l862 0000                        l847 0000  
+                      l865 0000                        l891 0049                        l868 0000  
+                      l893 004D                        l878 0000                        _GIE 005F  
+                      _PA2 002A                        _PC1 0039                        _PA6 002E  
+                      _PC4 003C                        _PC5 003D                        _RA4 002C  
+                      _RA7 002F                        _ISR 0058                        _SR0 0CF6  
+                      _SR1 0CF7                        u585 00E3                        _VR0 08C0  
+                      _VR1 08C1                        _VR2 08C2        __end_of_GetKeyEvent 00D2  
+                      _VR3 08C3                        _VRR 08C5                        _dir 0045  
+                     ?_ISR 0070                       l2130 0000                       l2140 0000  
+                     l2132 0000                       l2220 0000                       l2150 0000  
+                     l2142 0000                       l2134 0000                       l2222 0000  
+                     l2230 0000                       _C1OE 08CD                       l2152 0000  
+                     l2144 0000                       l2136 0000                       l2216 0000  
+                     l2224 0000                       l2232 0000                       l2154 0000  
+                     l2146 0000                       l2138 0000                       l2218 0000  
+                     l2226 0000                       l2234 0000                       l2402 0052  
+                     _C2OE 08D5                       l2156 0000                       l2148 0000  
+                     l2228 0000                       l2244 0000                       l2236 0000  
+                     l2340 0000                       l2404 0053                       l2334 0000  
+                     l2254 00CF                       l2238 0000                       l2350 0000  
+                     l2336 0000                       l2328 0000                       l2256 00D0  
+                     l2248 00C5                       l2344 0000                       l2360 0012  
+                     l2352 0000                       _C1ON 08CF                       l2346 00DD  
+                     l2338 0000                       l2362 0000                       l2354 0000  
+                     l2380 0030                       l2364 0000                       l2356 0000  
+                     l2348 0000                       _C2ON 08D7                       l2390 003F  
+                     l2374 0000                       l2358 0000                       l2392 0000  
+                     l2376 0000                       l2368 001E                       l2394 0000  
+                     l2386 0000                       l2378 002D                       l2396 0000  
+                     l2388 0000                       _ANS0 08F0                       _ANS1 08F1  
+                     _ANS2 08F2                       _ANS3 08F3                       _ANS4 08F4  
+                     _ANS5 08F5                       _ANS6 08F6                       _ANS7 08F7  
+                     _ANS8 08F8                       _ANS9 08F9                       _T0IE 005D  
+                     _T0IF 005A                       _T0ON 00FB                       _IOCB 0116  
+                     _INTE 005C                       _INTF 0059                       _TMR0 0001  
+                     _STRA 0CE8                       _STRB 0CE9                       _STRC 0CEA  
+                     _STRD 0CEB                       _WREN 0C62                       _WPUA 0095  
+                     _WPUB 0115                       _WPUC 0093                main@keycode 0075  
+                     _main 000B                       btemp 007E       __size_of_DELAY_125US 0008  
+                     start 000A           __end_of_DELAY_MS 00EB                      ??_ISR 0070  
+                    _C1CH0 08C8                      _C1CH1 08C9                      _C2CH0 08D0  
+                    _C2CH1 08D1                      _C1SEN 0CF5                      _C2REN 0CF4  
+                    _C1POL 08CC                      _C2POL 08D4                      _C1OUT 08CE  
+                    _C2OUT 08D6                      ?_main 0070                      _ANS10 08FA  
+                    _ANS11 08FB                      _EEPGD 0C67                      _ANSEL 011E  
+                    _IOCB4 08B4                      _IOCB5 08B5                      _IOCB6 08B6  
+                    _IOCB7 08B7                      _T1GSS 08D9                      i1l844 0092  
+                    i1l829 005C                      _MSCON 001B                      _VP6EN 08C4  
+                    _PSRCA 0088                      _PSRCC 0094                      _PORTA 0005  
+                    _PORTC 0007                      _SRCON 019E                      _PULSR 0CF2  
+                    _PULSS 0CF3                      _TRISA 0085                      _TRISC 0087  
+                    _VRCON 0118                      _WPUB4 08AC                      _WPUB5 08AD  
+                    _WPUB6 08AE                      _WPUB7 08AF       __size_of_DEVICE_INIT 001D  
+                    _delay 0079                      pclath 000A   __end_of_ENABLE_INTERRUPT 0102  
+                    status 0003                      wtemp0 007E               __end_of_main 0058  
+              _GetKeyEvent 00B6               ?_TIMER0_INIT 0070                     ??_main 0075  
+                   _C1VREN 08C7                     _C2VREN 08C6                     _C2SYNC 08D8  
+                   _EEADRH 010F                     _EEDATH 010E                     _ANSELH 011F  
+                   _MC1OUT 08DF                     _MC2OUT 08DE                     _T0CON0 001F  
+                   i1l2200 0081                     i1l2210 008D                     i1l2202 0083  
+                   i1l2206 0087                     i1l2208 008B                     i1l2180 0000  
+                   i1l2190 0073                     i1l2182 0000                     i1l2192 0076  
+                   i1l2168 0000                     i1l2194 0078                     i1l2178 0000  
+                   i1l2188 0072                     i1l2198 0000                     _INTEDG 040E  
+                   _INTCON 000B                     _OSCCON 008F                     _T0_cnt 0077  
+                   _PSINKA 0097                     _PSINKC 009F                     _OPTION 0081  
+               _SetUvSleep 010A                  DELAY_MS@a 0046         __size_of_SetUvIdle 0007  
+                   saved_w 007E                  ?_DELAY_MS 0073             __pcstackCOMMON 0070  
+             __pidataBANK0 0000              ?_SetUvWorking 0070                 ??_DELAY_MS 0075  
+        __end_of_SetUvIdle 0118                 __pbssBANK0 0042                ?_SetUvSleep 0070  
+               __pnvCOMMON 007B                 __pmaintext 000B                 __pintentry 0004  
+                  _CM1CON0 0119                    _CM2CON0 011A                    _CM2CON1 011B  
+           ??_SetUvWorking 0072       __size_of_TIMER0_INIT 0005                 _brightness 0078  
+                  _PSTRCON 019D                    _STRSYNC 0CEC              ??_DELAY_125US 0072  
+        ?_ENABLE_INTERRUPT 0070         ??_ENABLE_INTERRUPT 0072               ?_GetKeyEvent 0070  
+            _working_timer 0040              ??_DEVICE_INIT 0072        __size_of_SetUvSleep 0007  
+             __size_of_ISR 0041                  _LED_SPEED 0044       end_of_initialization 00F6  
+      __end_of_DELAY_125US 010A               DELAY_125US@a 0072        __end_of_DEVICE_INIT 00B6  
+        __size_of_DELAY_MS 0019       __end_of_SetUvWorking 011E               DELAY_MS@Time 0073  
+      start_initialization 00EB                __end_of_ISR 0099                _DELAY_125US 0102  
+             ??_SetUvSleep 0072                  _SetUvIdle 0111                __pdataBANK0 0044  
+     __size_of_GetKeyEvent 001C                _DEVICE_INIT 0099         __end_of_SetUvSleep 0111  
+              __pbssCOMMON 0076              __pcstackBANK0 0046                 ?_SetUvIdle 0070  
+                __pnvBANK0 0040                  __ptext350 00B6                  __ptext351 010A  
+                __ptext352 0111                  __ptext353 0118                  __ptext354 00F8  
+                __ptext355 011E                  __ptext356 0102                  __ptext357 0099  
+                __ptext349 00D2                  __ptext358 0058                  __ptext359 0000  
+__size_of_ENABLE_INTERRUPT 000A              ??_TIMER0_INIT 0072                   _DELAY_MS 00D2  
+    __size_of_SetUvWorking 0006         GetKeyEvent@keytime 0076          interrupt_function 0004  
+             _SetUvWorking 0118        __end_of_TIMER0_INIT 0123                ??_SetUvIdle 0072  
+                 _led_stat 007B       GetKeyEvent@key_event 0072               ?_DELAY_125US 0070  
+            __size_of_main 004D           _ENABLE_INTERRUPT 00F8                _TIMER0_INIT 011E  
+             ?_DEVICE_INIT 0070                   intlevel1 0000              ??_GetKeyEvent 0072  
+               _T0_seconds 0042              _machine_state 007A  

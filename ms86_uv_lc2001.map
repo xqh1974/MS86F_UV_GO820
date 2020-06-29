@@ -1,0 +1,396 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\dat\en_msgs.txt -cs \
+  -h+ms86_uv_lc2001.sym -z -Q16F685 -ol.obj -Mms86_uv_lc2001.map -E1 \
+  -ACONST=00h-0FFhx4 -ACODE=00h-03FFh -ASTRCODE=00h-03FFh \
+  -AENTRY=00h-0FFhx4 -ASTRING=00h-0FFhx4 -ABANK0=040h-06Fh -ARAM=040h-06Fh \
+  -AABS1=040h-07Fh -ACOMMON=070h-07Fh -ASFR0=00h-03Fh -ASFR1=080h-0EFh \
+  -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pfunctab=CODE \
+  -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
+  -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA \
+  -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
+  startup.obj ms86_uv_lc2001.obj 
+
+Object code version is 3.10
+
+Machine type is 16F685
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+startup.obj     end_init                              0        0        1        0       0
+ms86_uv_lc2001.obj
+                text82                              334      334       1D      668       0
+                text81                              300      300        8      600       0
+                text80                              308      308        9      610       0
+                text79                              2F6      2F6        5      5EC       0
+                text78                              2FB      2FB        5      5F6       0
+                text77                              351      351       1D      6A2       0
+                text76                              31C      31C       18      638       0
+                maintext                            36E      36E       92      6DC       0
+                cstackCOMMON                         70       70        6       70       1
+                dataCOMMON                           7B       7B        2       70       1
+                bssCOMMON                            76       76        5       70       1
+                cinit                               311      311        B      622       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   CONST          
+
+        CLASS   CODE           
+                end_init                              0        0        1         0
+                text82                              334      334       1D         0
+                text81                              300      300        8         0
+                text80                              308      308        9         0
+                text79                              2F6      2F6        5         0
+                text78                              2FB      2FB        5         0
+                text77                              351      351       1D         0
+                text76                              31C      31C       18         0
+                maintext                            36E      36E       92         0
+                cinit                               311      311        B         0
+
+        CLASS   STRCODE        
+
+        CLASS   ENTRY          
+
+        CLASS   STRING         
+
+        CLASS   BANK0          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+                abs_s1                              10E      10E        2         1
+                abs_s1                              115      115        2         1
+                abs_s1                              118      118        4         1
+                abs_s1                              11E      11E        2         1
+                abs_s1                              18C      18C        1         1
+                abs_s1                              19D      19D        2         1
+
+        CLASS   COMMON         
+                cstackCOMMON                         70       70        6         1
+                dataCOMMON                           7B       7B        2         1
+                bssCOMMON                            76       76        5         1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   CONFIG         
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+        CLASS   BANK1          
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000001  000001         0       0  CODE        2
+                cstackCOMMON                   000070  00000D  00007D        70       1  COMMON      1
+                text79                         0002F6  000005  0002FB       5EC       0  CODE        2
+                text78                         0002FB  000005  000300       5F6       0  CODE        2
+                text81                         000300  000008  000308       600       0  CODE        2
+                text80                         000308  000009  000311       610       0  CODE        2
+                cinit                          000311  00000B  00031C       622       0  CODE        2
+                text76                         00031C  000018  000334       638       0  CODE        2
+                text82                         000334  00001D  000351       668       0  CODE        2
+                text77                         000351  00001D  00036E       6A2       0  CODE        2
+                maintext                       00036E  000092  000400       6DC       0  CODE        2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            040-06F            30           1
+        CODE             001-2F5           2F5           2
+        COMMON           07D-07D             1           1
+        CONFIG           2007-2007             1           2
+        CONST            001-2F5           100           2
+        EEDATA           2100-21FF           100           2
+        ENTRY            001-2F5           100           2
+        IDLOC            2000-2003             4           2
+        RAM              040-06F            30           1
+        SFR0             000-03F            40           1
+        SFR1             080-0EF            70           1
+        STRCODE          001-2F5           2F5           2
+        STRING           001-2F5           100           2
+
+                                  Symbol Table
+
+??_DELAY_125US         cstackCOMMON 070
+??_DELAY_MS            cstackCOMMON 073
+??_DEVICE_INIT         cstackCOMMON 070
+??_GetKeyEvent         cstackCOMMON 070
+??_SetUvIdle           cstackCOMMON 070
+??_SetUvSleep          cstackCOMMON 070
+??_SetUvWorking        cstackCOMMON 070
+??_main                cstackCOMMON 075
+?_DELAY_125US          cstackCOMMON 070
+?_DELAY_MS             cstackCOMMON 071
+?_DEVICE_INIT          cstackCOMMON 070
+?_GetKeyEvent          cstackCOMMON 070
+?_SetUvIdle            cstackCOMMON 070
+?_SetUvSleep           cstackCOMMON 070
+?_SetUvWorking         cstackCOMMON 070
+?_main                 cstackCOMMON 070
+DELAY_125US@a          cstackCOMMON 070
+DELAY_MS@Time          cstackCOMMON 071
+DELAY_MS@a             cstackCOMMON 073
+GetKeyEvent@key_event  cstackCOMMON 070
+GetKeyEvent@keytime    bssCOMMON    07A
+_ANS0                  (abs)        8F0
+_ANS1                  (abs)        8F1
+_ANS10                 (abs)        8FA
+_ANS11                 (abs)        8FB
+_ANS2                  (abs)        8F2
+_ANS3                  (abs)        8F3
+_ANS4                  (abs)        8F4
+_ANS5                  (abs)        8F5
+_ANS6                  (abs)        8F6
+_ANS7                  (abs)        8F7
+_ANS8                  (abs)        8F8
+_ANS9                  (abs)        8F9
+_ANSEL                 (abs)        11E
+_ANSELH                (abs)        11F
+_C1CH0                 (abs)        8C8
+_C1CH1                 (abs)        8C9
+_C1OE                  (abs)        8CD
+_C1ON                  (abs)        8CF
+_C1OUT                 (abs)        8CE
+_C1POL                 (abs)        8CC
+_C1R                   (abs)        8CA
+_C1SEN                 (abs)        CF5
+_C1VREN                (abs)        8C7
+_C2CH0                 (abs)        8D0
+_C2CH1                 (abs)        8D1
+_C2OE                  (abs)        8D5
+_C2ON                  (abs)        8D7
+_C2OUT                 (abs)        8D6
+_C2POL                 (abs)        8D4
+_C2R                   (abs)        8D2
+_C2REN                 (abs)        CF4
+_C2SYNC                (abs)        8D8
+_C2VREN                (abs)        8C6
+_CM1CON0               (abs)        119
+_CM2CON0               (abs)        11A
+_CM2CON1               (abs)        11B
+_DELAY_125US           text81       300
+_DELAY_MS              text76       31C
+_DEVICE_INIT           text82       334
+_EEADRH                (abs)        10F
+_EEDATH                (abs)        10E
+_EEPGD                 (abs)        C67
+_GetKeyEvent           text77       351
+_INTCON                (abs)        00B
+_IOCB                  (abs)        116
+_IOCB4                 (abs)        8B4
+_IOCB5                 (abs)        8B5
+_IOCB6                 (abs)        8B6
+_IOCB7                 (abs)        8B7
+_MC1OUT                (abs)        8DF
+_MC2OUT                (abs)        8DE
+_MSCON                 (abs)        01B
+_OPTION                (abs)        081
+_OSCCON                (abs)        08F
+_PC0                   (abs)        038
+_PC1                   (abs)        039
+_PC4                   (abs)        03C
+_PC5                   (abs)        03D
+_PORTA                 (abs)        005
+_PORTC                 (abs)        007
+_PSINKA                (abs)        097
+_PSINKC                (abs)        09F
+_PSRCA                 (abs)        088
+_PSRCC                 (abs)        094
+_PSTRCON               (abs)        19D
+_PULSR                 (abs)        CF2
+_PULSS                 (abs)        CF3
+_RA2                   (abs)        02A
+_RA3                   (abs)        02B
+_RA4                   (abs)        02C
+_RA5                   (abs)        02D
+_SR0                   (abs)        CF6
+_SR1                   (abs)        CF7
+_SRCON                 (abs)        19E
+_STRA                  (abs)        CE8
+_STRB                  (abs)        CE9
+_STRC                  (abs)        CEA
+_STRD                  (abs)        CEB
+_STRSYNC               (abs)        CEC
+_SetUvIdle             text79       2F6
+_SetUvSleep            text78       2FB
+_SetUvWorking          text80       308
+_T1GSS                 (abs)        8D9
+_TRISA                 (abs)        085
+_TRISC                 (abs)        087
+_VP6EN                 (abs)        8C4
+_VR0                   (abs)        8C0
+_VR1                   (abs)        8C1
+_VR2                   (abs)        8C2
+_VR3                   (abs)        8C3
+_VRCON                 (abs)        118
+_VRR                   (abs)        8C5
+_WPUA                  (abs)        095
+_WPUB                  (abs)        115
+_WPUB4                 (abs)        8AC
+_WPUB5                 (abs)        8AD
+_WPUB6                 (abs)        8AE
+_WPUB7                 (abs)        8AF
+_WPUC                  (abs)        093
+_WREN                  (abs)        C62
+__Habs1                abs1         000
+__Hbank0               bank0        000
+__Hbank1               bank1        000
+__HbssCOMMON           bssCOMMON    000
+__Hcinit               cinit        000
+__Hclrtext             clrtext      000
+__Hcode                code         000
+__Hcommon              common       000
+__Hconfig              config       000
+__HcstackCOMMON        cstackCOMMON 000
+__HdataCOMMON          dataCOMMON   000
+__Heeprom_data         eeprom_data  000
+__Hend_init            end_init     001
+__Hfunctab             functab      000
+__HidataCOMMON         idataCOMMON  000
+__Hidloc               idloc        000
+__Hinit                init         000
+__Hintentry            intentry     000
+__Hmaintext            maintext     000
+__Hpa_nodes            pa_nodes     000
+__Hpowerup             powerup      000
+__Hram                 ram          000
+__Hreset_vec           reset_vec    000
+__Hsfr0                sfr0         000
+__Hsfr1                sfr1         000
+__Hstrings             strings      000
+__Htext                text         000
+__Labs1                abs1         000
+__Lbank0               bank0        000
+__Lbank1               bank1        000
+__LbssCOMMON           bssCOMMON    000
+__Lcinit               cinit        000
+__Lclrtext             clrtext      000
+__Lcode                code         000
+__Lcommon              common       000
+__Lconfig              config       000
+__LcstackCOMMON        cstackCOMMON 000
+__LdataCOMMON          dataCOMMON   000
+__Leeprom_data         eeprom_data  000
+__Lend_init            end_init     000
+__Lfunctab             functab      000
+__LidataCOMMON         idataCOMMON  000
+__Lidloc               idloc        000
+__Linit                init         000
+__Lintentry            intentry     000
+__Lmaintext            maintext     000
+__Lpa_nodes            pa_nodes     000
+__Lpowerup             powerup      000
+__Lram                 ram          000
+__Lreset_vec           reset_vec    000
+__Lsfr0                sfr0         000
+__Lsfr1                sfr1         000
+__Lstrings             strings      000
+__Ltext                text         000
+__S0                   (abs)        400
+__S1                   (abs)        07D
+__S2                   (abs)        000
+__end_of_DELAY_125US   text81       308
+__end_of_DELAY_MS      text76       334
+__end_of_DEVICE_INIT   text82       351
+__end_of_GetKeyEvent   text77       36E
+__end_of_SetUvIdle     text79       2FB
+__end_of_SetUvSleep    text78       300
+__end_of_SetUvWorking  text80       311
+__end_of_main          maintext     400
+__pbssCOMMON           bssCOMMON    076
+__pcstackCOMMON        cstackCOMMON 070
+__pdataCOMMON          dataCOMMON   07B
+__pidataCOMMON         idataCOMMON  000
+__pmaintext            maintext     36E
+__ptext76              text76       31C
+__ptext77              text77       351
+__ptext78              text78       2FB
+__ptext79              text79       2F6
+__ptext80              text80       308
+__ptext81              text81       300
+__ptext82              text82       334
+__ptext83              text83       000
+__size_of_DELAY_125US  (abs)        000
+__size_of_DELAY_MS     (abs)        000
+__size_of_DEVICE_INIT  (abs)        000
+__size_of_GetKeyEvent  (abs)        000
+__size_of_SetUvIdle    (abs)        000
+__size_of_SetUvSleep   (abs)        000
+__size_of_SetUvWorking (abs)        000
+__size_of_main         (abs)        000
+_brigtness             dataCOMMON   07B
+_buzz_timer            bssCOMMON    076
+_exit                  init         000
+_main                  maintext     36E
+_working_timer         bssCOMMON    078
+btemp                  (abs)        07E
+end_of_initialization  cinit        31A
+intlevel0              functab      000
+intlevel1              functab      000
+intlevel2              functab      000
+intlevel3              functab      000
+intlevel4              functab      000
+intlevel5              functab      000
+l1893                                  
+l1895                                  
+l1897                                  
+l1899                                  
+l1901                                  
+l1903                                  
+l1905                                  
+l1907                                  
+l1909                                  
+l1911                                  
+l1913                                  
+l1915                                  
+l1917                                  
+l1919                                  
+l1921                                  
+l1927                                  
+l1929                                  
+l1931                                  
+l1933                                  
+l1935                                  
+l1937                                  
+l1939                                  
+l1941                                  
+l1943                                  
+l1945                                  
+l1951                                  
+l1967                                  
+l1969                                  
+l1973                                  
+l1977                                  
+l1979                                  
+l1981                                  
+l1983                                  
+l1987                                  
+l1989                                  
+l2005                                  
+l2015                                  
+l2019                                  
+l2021                                  
+l2041                                  
+l791                                   
+l802                                   
+l808                                   
+l811                                   
+l814                                   
+l817                                   
+l827                                   
+main@keycode           cstackCOMMON 075
+reset_vec              reset_vec    000
+start                  init         000
+start_initialization   cinit        311
+wtemp0                 (abs)        07E

@@ -1,0 +1,478 @@
+//Deviec:MS86Fxx01
+//-----------------------Variable---------------------------------
+		_working_timer		EQU		78H
+		_buzz_timer		EQU		76H
+		_brigtness		EQU		7BH
+//-----------------------Variable END---------------------------------
+		ORG		0000H
+		LJUMP 	311H 			//0000 	3B11
+		ORG		02F6H
+
+		//;MS86F_PWM1_HALF.C: 188: PC5=1;
+		BSR 	7H,5 			//02F6 	1A87
+
+		//;MS86F_PWM1_HALF.C: 192: PC1=1;
+		BSR 	7H,1 			//02F7 	1887
+
+		//;MS86F_PWM1_HALF.C: 193: working_timer=0;
+		CLRR 	78H 			//02F8 	0178
+		CLRR 	79H 			//02F9 	0179
+		RET		 					//02FA 	0004
+
+		//;MS86F_PWM1_HALF.C: 200: PC5=1;
+		BSR 	7H,5 			//02FB 	1A87
+
+		//;MS86F_PWM1_HALF.C: 201: PC1=1;
+		BSR 	7H,1 			//02FC 	1887
+
+		//;MS86F_PWM1_HALF.C: 203: working_timer=0;
+		CLRR 	78H 			//02FD 	0178
+		ORG		02FEH
+		CLRR 	79H 			//02FE 	0179
+		RET		 					//02FF 	0004
+
+		//;MS86F_PWM1_HALF.C: 154: unsigned char a;
+		//;MS86F_PWM1_HALF.C: 156: for(a=0;a<125;a++)
+		CLRR 	70H 			//0300 	0170
+		CLRWDT	 			//0301 	0001
+		LDWI 	7DH 			//0302 	2A7D
+		INCR	70H,1 			//0303 	09F0
+		SUBWR 	70H,0 			//0304 	0C70
+		BTSC 	STATUS,0 		//0305 	1403
+		ORG		0306H
+		RET		 					//0306 	0004
+		LJUMP 	301H 			//0307 	3B01
+
+		//;MS86F_PWM1_HALF.C: 175: working_timer=(100*59*5);
+		LDWI 	3CH 			//0308 	2A3C
+		STR 	78H 			//0309 	01F8
+		LDWI 	73H 			//030A 	2A73
+		STR 	79H 			//030B 	01F9
+
+		//;MS86F_PWM1_HALF.C: 176: brigtness=5;
+		LDWI 	5H 			//030C 	2A05
+		STR 	7BH 			//030D 	01FB
+		ORG		030EH
+		CLRR 	7CH 			//030E 	017C
+
+		//;MS86F_PWM1_HALF.C: 179: PC5=0;
+		BCR 	7H,5 			//030F 	1287
+		RET		 					//0310 	0004
+		LDWI 	5H 			//0311 	2A05
+		CLRR 	76H 			//0312 	0176
+		CLRR 	77H 			//0313 	0177
+		CLRR 	78H 			//0314 	0178
+		CLRR 	79H 			//0315 	0179
+		ORG		0316H
+		CLRR 	7AH 			//0316 	017A
+		STR 	7BH 			//0317 	01FB
+		LDWI 	0H 			//0318 	2A00
+		CLRR 	7CH 			//0319 	017C
+		CLRR 	STATUS 			//031A 	0103
+		LJUMP 	36EH 			//031B 	3B6E
+
+		//;MS86F_PWM1_HALF.C: 163: unsigned short a;
+		//;MS86F_PWM1_HALF.C: 165: Time<<=3;
+		BCR 	STATUS,0 		//031C 	1003
+		RLR 	71H,1 			//031D 	05F1
+		ORG		031EH
+		RLR 	72H,1 			//031E 	05F2
+		BCR 	STATUS,0 		//031F 	1003
+		RLR 	71H,1 			//0320 	05F1
+		RLR 	72H,1 			//0321 	05F2
+		BCR 	STATUS,0 		//0322 	1003
+		RLR 	71H,1 			//0323 	05F1
+		RLR 	72H,1 			//0324 	05F2
+
+		//;MS86F_PWM1_HALF.C: 167: for(a=0;a<Time;a++)
+		CLRR 	73H 			//0325 	0173
+		ORG		0326H
+		CLRR 	74H 			//0326 	0174
+		LDR 	72H,0 			//0327 	0872
+		SUBWR 	74H,0 			//0328 	0C74
+		BTSS 	STATUS,2 		//0329 	1D03
+		LJUMP 	32DH 			//032A 	3B2D
+		LDR 	71H,0 			//032B 	0871
+		SUBWR 	73H,0 			//032C 	0C73
+		BTSC 	STATUS,0 		//032D 	1403
+		ORG		032EH
+		RET		 					//032E 	0004
+
+		//;MS86F_PWM1_HALF.C: 168: {
+		//;MS86F_PWM1_HALF.C: 169: DELAY_125US();
+		LCALL 	300H 			//032F 	3300
+		INCR	73H,1 			//0330 	09F3
+		BTSC 	STATUS,2 		//0331 	1503
+		INCR	74H,1 			//0332 	09F4
+		LJUMP 	327H 			//0333 	3B27
+
+		//;MS86F_PWM1_HALF.C: 59: OSCCON = 0B01110001;
+		LDWI 	71H 			//0334 	2A71
+		BSR 	STATUS,5 		//0335 	1A83
+		ORG		0336H
+		STR 	FH 			//0336 	018F
+
+		//;MS86F_PWM1_HALF.C: 62: INTCON = 0B00000000;
+		CLRR 	INTCON 			//0337 	010B
+
+		//;MS86F_PWM1_HALF.C: 63: OPTION = 0B00001000;
+		LDWI 	8H 			//0338 	2A08
+		STR 	1H 			//0339 	0181
+
+		//;MS86F_PWM1_HALF.C: 65: PORTA = 0B00011000;
+		LDWI 	18H 			//033A 	2A18
+		BCR 	STATUS,5 		//033B 	1283
+		STR 	5H 			//033C 	0185
+
+		//;MS86F_PWM1_HALF.C: 66: TRISA = 0B11000111;
+		LDWI 	C7H 			//033D 	2AC7
+		ORG		033EH
+		BSR 	STATUS,5 		//033E 	1A83
+		STR 	5H 			//033F 	0185
+
+		//;MS86F_PWM1_HALF.C: 67: WPUA = 0B11000111;
+		STR 	15H 			//0340 	0195
+
+		//;MS86F_PWM1_HALF.C: 69: PORTC = 0B00000010;
+		LDWI 	2H 			//0341 	2A02
+		BCR 	STATUS,5 		//0342 	1283
+		STR 	7H 			//0343 	0187
+
+		//;MS86F_PWM1_HALF.C: 70: TRISC = 0B11011101;
+		LDWI 	DDH 			//0344 	2ADD
+		BSR 	STATUS,5 		//0345 	1A83
+		ORG		0346H
+		STR 	7H 			//0346 	0187
+
+		//;MS86F_PWM1_HALF.C: 71: WPUC = 0B11011101;
+		STR 	13H 			//0347 	0193
+
+		//;MS86F_PWM1_HALF.C: 73: PSRCA = 0B11111111;
+		LDWI 	FFH 			//0348 	2AFF
+		STR 	8H 			//0349 	0188
+
+		//;MS86F_PWM1_HALF.C: 74: PSRCC = 0B11111111;
+		STR 	14H 			//034A 	0194
+
+		//;MS86F_PWM1_HALF.C: 75: PSINKA = 0B11111111;
+		STR 	17H 			//034B 	0197
+
+		//;MS86F_PWM1_HALF.C: 76: PSINKC = 0B11111111;
+		STR 	1FH 			//034C 	019F
+
+		//;MS86F_PWM1_HALF.C: 77: MSCON = 0B00110000;
+		LDWI 	30H 			//034D 	2A30
+		ORG		034EH
+		BCR 	STATUS,5 		//034E 	1283
+		STR 	1BH 			//034F 	019B
+		RET		 					//0350 	0004
+
+		//;MS86F_PWM1_HALF.C: 208: static unsigned char keytime=0;
+		//;MS86F_PWM1_HALF.C: 209: unsigned char key_event=0;
+		CLRR 	70H 			//0351 	0170
+
+		//;MS86F_PWM1_HALF.C: 210: if(RA2==0)
+		BCR 	STATUS,5 		//0352 	1283
+		BTSC 	5H,2 			//0353 	1505
+		LJUMP 	361H 			//0354 	3B61
+
+		//;MS86F_PWM1_HALF.C: 211: {
+		//;MS86F_PWM1_HALF.C: 212: if(keytime<200)
+		LDWI 	C8H 			//0355 	2AC8
+		ORG		0356H
+		SUBWR 	7AH,0 			//0356 	0C7A
+		BTSC 	STATUS,0 		//0357 	1403
+		LJUMP 	36CH 			//0358 	3B6C
+		LDWI 	C8H 			//0359 	2AC8
+
+		//;MS86F_PWM1_HALF.C: 213: {
+		//;MS86F_PWM1_HALF.C: 214: keytime++;
+		INCR	7AH,1 			//035A 	09FA
+
+		//;MS86F_PWM1_HALF.C: 215: if(keytime>=200)key_event = 2;
+		SUBWR 	7AH,0 			//035B 	0C7A
+		BTSS 	STATUS,0 		//035C 	1C03
+		LJUMP 	36CH 			//035D 	3B6C
+		ORG		035EH
+		LDWI 	2H 			//035E 	2A02
+		STR 	70H 			//035F 	01F0
+		LJUMP 	36CH 			//0360 	3B6C
+
+		//;MS86F_PWM1_HALF.C: 218: else
+		//;MS86F_PWM1_HALF.C: 219: {
+		//;MS86F_PWM1_HALF.C: 220: if(keytime>10 && keytime<200)key_event=1;
+		LDWI 	BH 			//0361 	2A0B
+		SUBWR 	7AH,0 			//0362 	0C7A
+		BTSS 	STATUS,0 		//0363 	1C03
+		LJUMP 	36BH 			//0364 	3B6B
+		LDWI 	C8H 			//0365 	2AC8
+		ORG		0366H
+		SUBWR 	7AH,0 			//0366 	0C7A
+		BTSC 	STATUS,0 		//0367 	1403
+		LJUMP 	36BH 			//0368 	3B6B
+		CLRR 	70H 			//0369 	0170
+		INCR	70H,1 			//036A 	09F0
+
+		//;MS86F_PWM1_HALF.C: 221: keytime=0;
+		CLRR 	7AH 			//036B 	017A
+
+		//;MS86F_PWM1_HALF.C: 222: }
+		//;MS86F_PWM1_HALF.C: 223: return key_event;
+		LDR 	70H,0 			//036C 	0870
+		RET		 					//036D 	0004
+		ORG		036EH
+
+		//;MS86F_PWM1_HALF.C: 234: DEVICE_INIT();
+		LCALL 	334H 			//036E 	3334
+
+		//;MS86F_PWM1_HALF.C: 236: SetUvSleep();
+		LCALL 	2FBH 			//036F 	32FB
+
+		//;MS86F_PWM1_HALF.C: 237: DELAY_MS(500);
+		LDWI 	F4H 			//0370 	2AF4
+		STR 	71H 			//0371 	01F1
+		LDWI 	1H 			//0372 	2A01
+		STR 	72H 			//0373 	01F2
+		LCALL 	31CH 			//0374 	331C
+
+		//;MS86F_PWM1_HALF.C: 251: {
+		//;MS86F_PWM1_HALF.C: 252: keycode=GetKeyEvent();
+		LCALL 	351H 			//0375 	3351
+		ORG		0376H
+		STR 	75H 			//0376 	01F5
+
+		//;MS86F_PWM1_HALF.C: 253: if(keycode==1)
+		DECRSZ 	75H,0 		//0377 	0E75
+		LJUMP 	380H 			//0378 	3B80
+
+		//;MS86F_PWM1_HALF.C: 254: {
+		//;MS86F_PWM1_HALF.C: 255: RA4=!RA4;
+		LDWI 	10H 			//0379 	2A10
+		XORWR 	5H,1 			//037A 	0485
+
+		//;MS86F_PWM1_HALF.C: 256: buzz_timer=20;
+		LDWI 	14H 			//037B 	2A14
+		STR 	76H 			//037C 	01F6
+		CLRR 	77H 			//037D 	0177
+		ORG		037EH
+
+		//;MS86F_PWM1_HALF.C: 257: RA5=1;
+		BSR 	5H,5 			//037E 	1A85
+
+		//;MS86F_PWM1_HALF.C: 258: }
+		LJUMP 	38FH 			//037F 	3B8F
+
+		//;MS86F_PWM1_HALF.C: 259: else if(keycode==2)
+		LDR 	75H,0 			//0380 	0875
+		XORWI 	2H 			//0381 	2602
+		BTSS 	STATUS,2 		//0382 	1D03
+		LJUMP 	38FH 			//0383 	3B8F
+
+		//;MS86F_PWM1_HALF.C: 260: {
+		//;MS86F_PWM1_HALF.C: 261: if(working_timer==0)
+		LDR 	79H,0 			//0384 	0879
+		IORWR 	78H,0 			//0385 	0378
+		ORG		0386H
+		BTSS 	STATUS,2 		//0386 	1D03
+		LJUMP 	38BH 			//0387 	3B8B
+
+		//;MS86F_PWM1_HALF.C: 262: {
+		//;MS86F_PWM1_HALF.C: 263: SetUvWorking();
+		LCALL 	308H 			//0388 	3308
+
+		//;MS86F_PWM1_HALF.C: 264: buzz_timer=100;
+		LDWI 	64H 			//0389 	2A64
+		LJUMP 	37CH 			//038A 	3B7C
+
+		//;MS86F_PWM1_HALF.C: 267: else
+		//;MS86F_PWM1_HALF.C: 268: {
+		//;MS86F_PWM1_HALF.C: 269: SetUvIdle();
+		LCALL 	2F6H 			//038B 	32F6
+
+		//;MS86F_PWM1_HALF.C: 270: working_timer=0;
+		CLRR 	78H 			//038C 	0178
+		CLRR 	79H 			//038D 	0179
+		ORG		038EH
+		LJUMP 	389H 			//038E 	3B89
+
+		//;MS86F_PWM1_HALF.C: 273: }
+		//;MS86F_PWM1_HALF.C: 274: }
+		//;MS86F_PWM1_HALF.C: 276: if(working_timer)
+		LDR 	79H,0 			//038F 	0879
+		IORWR 	78H,0 			//0390 	0378
+		BTSC 	STATUS,2 		//0391 	1503
+		LJUMP 	3A3H 			//0392 	3BA3
+
+		//;MS86F_PWM1_HALF.C: 277: {
+		//;MS86F_PWM1_HALF.C: 278: working_timer--;
+		LDWI 	1H 			//0393 	2A01
+		SUBWR 	78H,1 			//0394 	0CF8
+		LDWI 	0H 			//0395 	2A00
+		ORG		0396H
+		BTSS 	STATUS,0 		//0396 	1C03
+		DECR 	79H,1 			//0397 	0DF9
+		SUBWR 	79H,1 			//0398 	0CF9
+
+		//;MS86F_PWM1_HALF.C: 279: if(working_timer==0)
+		LDR 	79H,0 			//0399 	0879
+		IORWR 	78H,0 			//039A 	0378
+		BTSS 	STATUS,2 		//039B 	1D03
+		LJUMP 	3A3H 			//039C 	3BA3
+
+		//;MS86F_PWM1_HALF.C: 280: {
+		//;MS86F_PWM1_HALF.C: 281: SetUvIdle();
+		LCALL 	2F6H 			//039D 	32F6
+		ORG		039EH
+
+		//;MS86F_PWM1_HALF.C: 282: buzz_timer=500;
+		LDWI 	F4H 			//039E 	2AF4
+		STR 	76H 			//039F 	01F6
+		LDWI 	1H 			//03A0 	2A01
+		STR 	77H 			//03A1 	01F7
+
+		//;MS86F_PWM1_HALF.C: 283: RA5=1;
+		BSR 	5H,5 			//03A2 	1A85
+
+		//;MS86F_PWM1_HALF.C: 284: }
+		//;MS86F_PWM1_HALF.C: 285: }
+		//;MS86F_PWM1_HALF.C: 286: if(buzz_timer)
+		LDR 	77H,0 			//03A3 	0877
+		IORWR 	76H,0 			//03A4 	0376
+		BTSC 	STATUS,2 		//03A5 	1503
+		ORG		03A6H
+		LJUMP 	3C8H 			//03A6 	3BC8
+
+		//;MS86F_PWM1_HALF.C: 287: {
+		//;MS86F_PWM1_HALF.C: 288: buzz_timer--;
+		LDWI 	1H 			//03A7 	2A01
+		SUBWR 	76H,1 			//03A8 	0CF6
+		LDWI 	0H 			//03A9 	2A00
+		BTSS 	STATUS,0 		//03AA 	1C03
+		DECR 	77H,1 			//03AB 	0DF7
+		SUBWR 	77H,1 			//03AC 	0CF7
+
+		//;MS86F_PWM1_HALF.C: 289: if(buzz_timer==0 || buzz_timer==150 || buzz_timer==300)RA5=0;
+		LDR 	77H,0 			//03AD 	0877
+		ORG		03AEH
+		IORWR 	76H,0 			//03AE 	0376
+		BTSC 	STATUS,2 		//03AF 	1503
+		LJUMP 	3BCH 			//03B0 	3BBC
+		LDR 	76H,0 			//03B1 	0876
+		XORWI 	96H 			//03B2 	2696
+		IORWR 	77H,0 			//03B3 	0377
+		BTSC 	STATUS,2 		//03B4 	1503
+		LJUMP 	3BCH 			//03B5 	3BBC
+		ORG		03B6H
+		DECR 	77H,0 			//03B6 	0D77
+		LDWI 	2CH 			//03B7 	2A2C
+		BTSC 	STATUS,2 		//03B8 	1503
+		XORWR 	76H,0 			//03B9 	0476
+		BTSS 	STATUS,2 		//03BA 	1D03
+		LJUMP 	3BEH 			//03BB 	3BBE
+		BCR 	5H,5 			//03BC 	1285
+		LJUMP 	3C8H 			//03BD 	3BC8
+		ORG		03BEH
+
+		//;MS86F_PWM1_HALF.C: 290: else if(buzz_timer==100 || buzz_timer==250)RA5=1;
+		LDR 	76H,0 			//03BE 	0876
+		XORWI 	64H 			//03BF 	2664
+		IORWR 	77H,0 			//03C0 	0377
+		BTSC 	STATUS,2 		//03C1 	1503
+		LJUMP 	3C7H 			//03C2 	3BC7
+		LDR 	76H,0 			//03C3 	0876
+		XORWI 	FAH 			//03C4 	26FA
+		IORWR 	77H,0 			//03C5 	0377
+		ORG		03C6H
+		BTSC 	STATUS,2 		//03C6 	1503
+		BSR 	5H,5 			//03C7 	1A85
+
+		//;MS86F_PWM1_HALF.C: 291: }
+		//;MS86F_PWM1_HALF.C: 293: if(working_timer || PC4==0)
+		LDR 	79H,0 			//03C8 	0879
+		IORWR 	78H,0 			//03C9 	0378
+		BTSS 	STATUS,2 		//03CA 	1D03
+		LJUMP 	3CEH 			//03CB 	3BCE
+		BTSC 	7H,4 			//03CC 	1607
+		LJUMP 	3F3H 			//03CD 	3BF3
+		ORG		03CEH
+
+		//;MS86F_PWM1_HALF.C: 294: {
+		//;MS86F_PWM1_HALF.C: 295: brigtness++;
+		INCR	7BH,1 			//03CE 	09FB
+		BTSC 	STATUS,2 		//03CF 	1503
+		INCR	7CH,1 			//03D0 	09FC
+
+		//;MS86F_PWM1_HALF.C: 309: if(brigtness<50)
+		LDWI 	0H 			//03D1 	2A00
+		SUBWR 	7CH,0 			//03D2 	0C7C
+		LDWI 	32H 			//03D3 	2A32
+		BTSC 	STATUS,2 		//03D4 	1503
+		SUBWR 	7BH,0 			//03D5 	0C7B
+		ORG		03D6H
+		BTSC 	STATUS,0 		//03D6 	1403
+		LJUMP 	3E1H 			//03D7 	3BE1
+
+		//;MS86F_PWM1_HALF.C: 310: {
+		//;MS86F_PWM1_HALF.C: 311: if(working_timer)PC1=0;
+		LDR 	79H,0 			//03D8 	0879
+		IORWR 	78H,0 			//03D9 	0378
+		BTSC 	STATUS,2 		//03DA 	1503
+		LJUMP 	3DDH 			//03DB 	3BDD
+		BCR 	7H,1 			//03DC 	1087
+
+		//;MS86F_PWM1_HALF.C: 312: if(PC4==0)RA3=0;
+		BTSC 	7H,4 			//03DD 	1607
+		ORG		03DEH
+		LJUMP 	3F3H 			//03DE 	3BF3
+		BCR 	5H,3 			//03DF 	1185
+		LJUMP 	3F3H 			//03E0 	3BF3
+
+		//;MS86F_PWM1_HALF.C: 314: else if(brigtness<100)
+		LDWI 	0H 			//03E1 	2A00
+		SUBWR 	7CH,0 			//03E2 	0C7C
+		LDWI 	64H 			//03E3 	2A64
+		BTSC 	STATUS,2 		//03E4 	1503
+		SUBWR 	7BH,0 			//03E5 	0C7B
+		ORG		03E6H
+		BTSC 	STATUS,0 		//03E6 	1403
+		LJUMP 	3F1H 			//03E7 	3BF1
+
+		//;MS86F_PWM1_HALF.C: 315: {
+		//;MS86F_PWM1_HALF.C: 316: if(working_timer)PC1=1;
+		LDR 	79H,0 			//03E8 	0879
+		IORWR 	78H,0 			//03E9 	0378
+		BTSC 	STATUS,2 		//03EA 	1503
+		LJUMP 	3EDH 			//03EB 	3BED
+		BSR 	7H,1 			//03EC 	1887
+
+		//;MS86F_PWM1_HALF.C: 317: if(PC4==0)RA3=1;
+		BTSC 	7H,4 			//03ED 	1607
+		ORG		03EEH
+		LJUMP 	3F3H 			//03EE 	3BF3
+		BSR 	5H,3 			//03EF 	1985
+		LJUMP 	3F3H 			//03F0 	3BF3
+
+		//;MS86F_PWM1_HALF.C: 319: else brigtness=0;
+		CLRR 	7BH 			//03F1 	017B
+		CLRR 	7CH 			//03F2 	017C
+
+		//;MS86F_PWM1_HALF.C: 321: }
+		//;MS86F_PWM1_HALF.C: 323: if(PC4) RA3=PC0;
+		BTSS 	7H,4 			//03F3 	1E07
+		LJUMP 	3FCH 			//03F4 	3BFC
+		BTSS 	7H,0 			//03F5 	1C07
+		ORG		03F6H
+		LJUMP 	3FAH 			//03F6 	3BFA
+		BCR 	STATUS,5 		//03F7 	1283
+		BSR 	5H,3 			//03F8 	1985
+		LJUMP 	3FCH 			//03F9 	3BFC
+		BCR 	STATUS,5 		//03FA 	1283
+		BCR 	5H,3 			//03FB 	1185
+
+		//;MS86F_PWM1_HALF.C: 325: DELAY_MS(10);
+		LDWI 	AH 			//03FC 	2A0A
+		STR 	71H 			//03FD 	01F1
+		ORG		03FEH
+		CLRR 	72H 			//03FE 	0172
+		LJUMP 	374H 			//03FF 	3B74
+			END
